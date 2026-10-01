@@ -1,0 +1,43 @@
+{
+  "id": "L041",
+  "rationale": "没有枚举调用；未来 cat 输出恰好含列表也不能倒推来源。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": []
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    }
+  },
+  "trajectory_sha256": "b73c7fb9289c0861b926e7b586c36d876659df2bb065c21518365b96c8ff8a40",
+  "replays": []
+}

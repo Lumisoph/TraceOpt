@@ -1,0 +1,62 @@
+{
+  "steps": [
+    {
+      "name": "venv_create",
+      "command": [
+        "python",
+        "-m",
+        "venv",
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-wheel-7bybjlgf\\venv"
+      ],
+      "exit_code": 0,
+      "log": "venv_create.log"
+    },
+    {
+      "name": "wheel_install",
+      "command": [
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-wheel-7bybjlgf\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "iterations\\iter_011\\evidence\\dist\\traceopt-0.1.0.dev0-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "log": "wheel_install.log"
+    },
+    {
+      "name": "wheel_import",
+      "command": [
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-wheel-7bybjlgf\\venv\\Scripts\\python.exe",
+        "-c",
+        "import traceopt; print(traceopt.__file__)"
+      ],
+      "exit_code": 0,
+      "log": "wheel_import.log"
+    },
+    {
+      "name": "wheel_cli",
+      "command": [
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-wheel-7bybjlgf\\venv\\Scripts\\python.exe",
+        "-m",
+        "traceopt",
+        "inspect",
+        "tests/fixtures/trajectory.json"
+      ],
+      "exit_code": 0,
+      "log": "wheel_cli.log"
+    },
+    {
+      "name": "wheel_metadata",
+      "command": [
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-wheel-7bybjlgf\\venv\\Scripts\\python.exe",
+        "-c",
+        "from importlib.metadata import version; print(version(\"traceopt\"))"
+      ],
+      "exit_code": 0,
+      "log": "wheel_metadata.log"
+    }
+  ],
+  "wheel": "traceopt-0.1.0.dev0-py3-none-any.whl",
+  "wheel_sha256": "077d13f512eb75d40c8fd4297b38602c4767df9a46524fe5608df60b3ab5b80e"
+}

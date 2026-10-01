@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "dataset": "../data/challenges/loops_v1.json",
+  "timeout": 10
+}

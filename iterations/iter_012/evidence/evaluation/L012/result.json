@@ -1,0 +1,69 @@
+{
+  "id": "L012",
+  "rationale": "枚举后读取独立文件不产生写依赖，生产循环从 a 开始；基线可能错误合并额外读取。",
+  "expected": [
+    [
+      "a",
+      "b"
+    ]
+  ],
+  "predictions": {
+    "production": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "naive": [
+      [
+        "x",
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  "scores": {
+    "production": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "no_dependency_guard": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "trajectory_sha256": "5e4bb35ca036702b92a7638ae11f53dd10f0747af91bcf989277583090860607",
+  "replays": [
+    {
+      "call_ids": [
+        "a",
+        "b"
+      ],
+      "status": "completed",
+      "successful": true,
+      "report": "L012/replay-0.json"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "trajectory_format": "mini-swe-agent-1.1",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "人工挑战步骤",
+      "tool_calls": [
+        {
+          "id": "p",
+          "type": "function",
+          "function": {
+            "name": "bash",
+            "arguments": "{\"command\": \"find src -type f -print0\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "p",
+      "content": "src/a\u0000src/b\u0000",
+      "extra": {
+        "returncode": 0,
+        "raw_output": "src/a\u0000src/b\u0000"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "人工挑战步骤",
+      "tool_calls": [
+        {
+          "id": "a",
+          "type": "function",
+          "function": {
+            "name": "bash",
+            "arguments": "{\"command\": \"cat src/a\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "a",
+      "content": "",
+      "extra": {
+        "returncode": 0,
+        "raw_output": ""
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "人工挑战步骤",
+      "tool_calls": [
+        {
+          "id": "x",
+          "type": "function",
+          "function": {
+            "name": "bash",
+            "arguments": "{\"command\": \"wc docs/note\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "x",
+      "content": "",
+      "extra": {
+        "returncode": 0,
+        "raw_output": ""
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "人工挑战步骤",
+      "tool_calls": [
+        {
+          "id": "b",
+          "type": "function",
+          "function": {
+            "name": "bash",
+            "arguments": "{\"command\": \"cat src/b\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "b",
+      "content": "",
+      "extra": {
+        "returncode": 0,
+        "raw_output": ""
+      }
+    }
+  ]
+}

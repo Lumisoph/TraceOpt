@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "cases": 45,
+  "positive_cases": 17,
+  "expected_loops": 17,
+  "methods": {
+    "production": {
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "naive": {
+      "tp": 16,
+      "fp": 24,
+      "fn": 1,
+      "precision": 0.4,
+      "recall": 0.9411764705882353,
+      "f1": 0.5614035087719298
+    },
+    "no_dependency_guard": {
+      "tp": 17,
+      "fp": 7,
+      "fn": 0,
+      "precision": 0.7083333333333334,
+      "recall": 1.0,
+      "f1": 0.8292682926829268
+    }
+  },
+  "replay": {
+    "attempted": 12,
+    "successful": 8,
+    "failed": 4,
+    "not_applicable": 5,
+    "success_rate": 0.6666666666666666
+  }
+}

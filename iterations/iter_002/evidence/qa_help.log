@@ -1,0 +1,11 @@
+用法：traceopt [-h] {inspect,export} ...
+
+只读检查工具调用轨迹并导出规范事件
+
+选项:
+  -h, --help        显示帮助信息
+
+子命令:
+  {inspect,export}
+    inspect         输出轨迹摘要
+    export          输出完整规范事件

@@ -1,0 +1,48 @@
+{
+  "id": "L038",
+  "rationale": "移动绑定文件写入源与目标，源路径依赖失效。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    }
+  },
+  "trajectory_sha256": "5f984e5ac7af58f0370e559bb0076ad8e9d3280a3ee10b0443d5bc5e18e6632d",
+  "replays": []
+}

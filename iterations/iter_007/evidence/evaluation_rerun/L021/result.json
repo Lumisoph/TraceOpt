@@ -1,0 +1,43 @@
+{
+  "id": "L021",
+  "rationale": "末尾 NUL 缺失，列表可能被截断。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": []
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    }
+  },
+  "trajectory_sha256": "708ab9460ddf4f38d64f24b29e67f6a3e2ad3ffd0b22d66b18a0c2eee6ee6f60",
+  "replays": []
+}

@@ -1,0 +1,43 @@
+{
+  "id": "L024",
+  "rationale": "枚举输出越过 producer 的根目录，不能信任。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": []
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    }
+  },
+  "trajectory_sha256": "4f1ab4631cd21569ea0a46deb76c366b8623ac4b6c1cb7b0fa37471950da26ee",
+  "replays": []
+}

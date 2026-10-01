@@ -1,0 +1,49 @@
+schema_version: 1
+state_file: .traceopt/state.yaml
+initial_phase: planning
+phases:
+  planning:
+    role: Planner
+    prompt: .prompts/planner.md
+    status_key: plan
+    next: development
+    exit: 冻结计划、逐项验收、范围和受影响回归已明确
+  development:
+    role: Developer
+    prompt: .prompts/developer.md
+    status_key: development
+    next: qa
+    exit: 开发报告记录实现、自测、未完成项和被测版本
+  qa:
+    role: QA
+    prompt: .prompts/qa.md
+    status_key: qa
+    next: finalizing
+    exit: QA 报告明确通过或失败，逐项关联可复现证据
+  finalizing:
+    role: Finalizer
+    prompt: .prompts/finalizer.md
+    status_key: finalization
+    next: planning
+    exit: 同步完成、记录本轮收尾标识、创建下一轮待规划产物
+stage_statuses: [pending, in_progress, completed, blocked]
+qa_verdicts: [not_run, passed, failed, blocked]
+feature_statuses: [PLANNED, IMPLEMENTED_UNVERIFIED, VERIFIED_LOCAL, VERIFIED_FULL, PARTIAL, BROKEN, UNSUPPORTED]
+bug_statuses: [OPEN, FIXED_UNVERIFIED, VERIFIED_FIXED, WONT_FIX]
+iteration_budget:
+  max_primary_tasks: 2
+  max_new_modules: 1
+  expected_changed_files: 8
+gates:
+  fast:
+    required: [针对性单元测试, 验收测试, 受影响回归, 1至3个对抗测试]
+    grants: VERIFIED_LOCAL
+  full:
+    triggers: [里程碑完成, Canonical IR 变更, 依赖核心变更, Replay 变更, 发布候选]
+    required: [完整 pytest, 集成测试, 挑战集冒烟或全量评估, 关键 CLI]
+    grants: VERIFIED_FULL
+recovery:
+  qa_failed: 经 finalizing 保存缺陷，在下一轮 planning 安排修复
+  environment_blocked: 保持阶段并记录阻塞；恢复环境后重跑
+  finalization_commit_point: 最后原子替换 state.yaml
+  idempotency_key: iteration

@@ -1,0 +1,15 @@
+﻿{
+  "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+  "python": "3.13.5",
+  "files": {
+    "traceopt-0.1.0-py3-none-any.whl": {
+      "sha256": "881efd39dfa3be0389a9e95fdf1405f7b2ef2afc980d95070f11a114d63f2c96",
+      "size": 22467
+    },
+    "traceopt-0.1.0.tar.gz": {
+      "sha256": "04d0878c0c112e716ae6d7035100e3da46fb6bdd9593d7e6e7ecca84d0631ff1",
+      "size": 37714
+    }
+  }
+}
+

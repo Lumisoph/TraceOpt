@@ -1,0 +1,1600 @@
+{
+  "schema_version": 1,
+  "annotation_policy": "人工受控结构循环标注：成功 NUL find 来源，唯一根内路径，显式 cwd，依赖屏障有效且消费者完整连续同模板。后续输出仅在重放阶段验证。",
+  "cases": [
+    {
+      "id": "L001",
+      "rationale": "NUL 枚举后按原顺序读取两个普通文件，形成完整绑定循环。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L002",
+      "rationale": "三个文件的完整序列为一个循环，不能拆成两个文件的跨度。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000src/c\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "c",
+          "command": "cat src/c",
+          "output": "gamma\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n",
+        "src/c": "gamma\n"
+      }
+    },
+    {
+      "id": "L003",
+      "rationale": "被引号保护的空格路径不改变文件身份。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a x\u0000src/b x\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat 'src/a x'",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat 'src/b x'",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a x": "alpha\n",
+        "src/b x": "beta\n"
+      }
+    },
+    {
+      "id": "L004",
+      "rationale": "枚举与读取均使用绝对虚拟路径。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find /repo/src -type f -print0",
+          "output": "/repo/src/a\u0000/repo/src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat /repo/src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat /repo/src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L005",
+      "rationale": "显式点目录不改变普通路径身份。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat ./src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat ./src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L006",
+      "rationale": "head -n 1 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "head -n 1 src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "head -n 1 src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L007",
+      "rationale": "tail -n 1 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "tail -n 1 src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "tail -n 1 src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L008",
+      "rationale": "wc -l 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "wc -l src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "wc -l src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L009",
+      "rationale": "sort 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "sort src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "sort src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L010",
+      "rationale": "uniq 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "uniq src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "uniq src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L011",
+      "rationale": "枚举后写入独立子树不影响枚举根与绑定文件。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "touch docs/note",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n",
+        "docs/note": ""
+      }
+    },
+    {
+      "id": "L012",
+      "rationale": "枚举后读取独立文件不产生写依赖，生产循环从 a 开始；基线可能错误合并额外读取。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "cat docs/note",
+          "output": "note",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n",
+        "docs/note": "note"
+      }
+    },
+    {
+      "id": "L013",
+      "rationale": "生产者和消费者使用同一显式子目录上下文。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find . -type f -print0",
+          "output": "./a\u0000./b\u0000",
+          "returncode": 0,
+          "cwd": "/repo/src"
+        },
+        {
+          "id": "a",
+          "command": "cat a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo/src"
+        },
+        {
+          "id": "b",
+          "command": "cat b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo/src"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L014",
+      "rationale": "结构绑定成立，但历史输出与仓库不一致；检测正例不等于重放成功。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "错误历史",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L015",
+      "rationale": "结构绑定成立，但片段初始仓库多一个文件，重放枚举检查应拒绝。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n",
+        "src/c": "extra"
+      }
+    },
+    {
+      "id": "L016",
+      "rationale": "后续返回失败不影响执行前缀的结构预测，但不符合成功历史重放前提。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 1,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L017",
+      "rationale": "后续 raw_output 缺失不影响结构匹配，重放必须拒绝而非跳过失败。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": null,
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L018",
+      "rationale": "失败的 find 输出不能作为可靠绑定来源。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 1,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L019",
+      "rationale": "没有原始输出，不能从展示文本或未来调用反推列表。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": null,
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L020",
+      "rationale": "换行分隔不能按 NUL 契约解析，存在文件名歧义。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\nsrc/b\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L021",
+      "rationale": "末尾 NUL 缺失，列表可能被截断。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L022",
+      "rationale": "重复绑定路径不符合唯一文件枚举契约。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/a\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L023",
+      "rationale": "单路径不足以构成循环。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L024",
+      "rationale": "枚举输出越过 producer 的根目录，不能信任。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000other/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat other/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L025",
+      "rationale": "消费者颠倒枚举顺序，不能匹配固定 identity 绑定。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L026",
+      "rationale": "两个消费者模板不同。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "head src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L027",
+      "rationale": "只出现第一个消费者，候选计划没有完整后缀。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L028",
+      "rationale": "循环消费者之间插入另一工具调用，跨度不连续。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "wc docs/note",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L029",
+      "rationale": "生产者观察之后用户改变任务，旧前缀不能跨越新指令。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "role": "user",
+          "content": "先暂停原任务"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L030",
+      "rationale": "两个消费者之间出现用户新指令，不构成一个连续自动执行片段。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "role": "user",
+          "content": "换一个任务"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L031",
+      "rationale": "首消费者工作目录缺失，不能猜测路径。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": null
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L032",
+      "rationale": "后续消费者切换工作目录，同一文字路径不再是同一资源。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/elsewhere"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L033",
+      "rationale": "枚举后 touch 绑定文件，存在写入到绑定读取的 RAW 屏障。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "touch src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L034",
+      "rationale": "枚举后删除枚举根，父子树重叠必须阻止绑定。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "rm src",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L035",
+      "rationale": "枚举根中新建文件改变成员集合，即使不写已有绑定文件也须阻止。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "touch src/new",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L036",
+      "rationale": "未知程序可能改变枚举与文件，需全局屏障。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "python mutate.py",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L037",
+      "rationale": "复合管道未建模，不能把它当作只读安全调用。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "cat src/a | sort",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L038",
+      "rationale": "移动绑定文件写入源与目标，源路径依赖失效。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "mv src/a docs/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L039",
+      "rationale": "删除绑定文件会影响后续读取。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "x",
+          "command": "rm src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L040",
+      "rationale": "ls 的 NUL 样式输出不构成已支持的 find 来源。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "ls src",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L041",
+      "rationale": "没有枚举调用；未来 cat 输出恰好含列表也不能倒推来源。",
+      "steps": [
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L042",
+      "rationale": "枚举使用不同工作目录，消费者同名路径无法绑定。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/elsewhere"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L043",
+      "rationale": "列表含空路径项，拒绝不完整或畸形来源。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a",
+          "output": "alpha\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b",
+          "output": "beta\n",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L044",
+      "rationale": "shell 展开路径不在词法普通文件模型内。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a*\u0000src/b*\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "cat src/a*",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "cat src/b*",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    },
+    {
+      "id": "L045",
+      "rationale": "head 参数在后续调用改变，不是固定命令模板。",
+      "steps": [
+        {
+          "id": "p",
+          "command": "find src -type f -print0",
+          "output": "src/a\u0000src/b\u0000",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "a",
+          "command": "head -n 1 src/a",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        },
+        {
+          "id": "b",
+          "command": "head -n 2 src/b",
+          "output": "",
+          "returncode": 0,
+          "cwd": "/repo"
+        }
+      ],
+      "expected": [],
+      "repository": {
+        "src/a": "alpha\n",
+        "src/b": "beta\n"
+      }
+    }
+  ]
+}

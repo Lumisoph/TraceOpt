@@ -1,0 +1,68 @@
+{
+  "id": "L017",
+  "rationale": "后续 raw_output 缺失不影响结构匹配，重放必须拒绝而非跳过失败。",
+  "expected": [
+    [
+      "a",
+      "b"
+    ]
+  ],
+  "predictions": {
+    "production": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  "scores": {
+    "production": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "naive": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "no_dependency_guard": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "trajectory_sha256": "6b2ef25554d0c27f844eca6db375c32540ad5ae94ff8556ea29d64d53e8d4f21",
+  "replays": [
+    {
+      "call_ids": [
+        "a",
+        "b"
+      ],
+      "status": "error",
+      "successful": false,
+      "error": "消费者缺少完整成功的历史结果，无法核对重放"
+    }
+  ]
+}

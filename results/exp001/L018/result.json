@@ -1,0 +1,43 @@
+{
+  "id": "L018",
+  "rationale": "失败的 find 输出不能作为可靠绑定来源。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": []
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    }
+  },
+  "trajectory_sha256": "49283306fcbd8186fff3c50a44cca156e54a3aee27a5bad2c98757a621b28248",
+  "replays": []
+}

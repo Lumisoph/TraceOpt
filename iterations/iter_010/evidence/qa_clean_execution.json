@@ -1,0 +1,63 @@
+[
+  {
+    "command": [
+      "python",
+      "-m",
+      "venv",
+      ".venv-release-audit"
+    ],
+    "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+    "exit_code": 0,
+    "log": "qa_clean_create.log"
+  },
+  {
+    "command": [
+      "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-audit\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "-e",
+      ".[dev]"
+    ],
+    "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+    "exit_code": 0,
+    "log": "qa_readme_install.log"
+  },
+  {
+    "command": [
+      "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-audit\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+    "exit_code": 0,
+    "log": "qa_clean_pytest.log"
+  },
+  {
+    "command": [
+      "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-audit\\Scripts\\python.exe",
+      "-m",
+      "ruff",
+      "check",
+      "src",
+      "tests",
+      "examples",
+      "experiments"
+    ],
+    "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+    "exit_code": 0,
+    "log": "qa_clean_ruff.log"
+  },
+  {
+    "command": [
+      "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-audit\\Scripts\\python.exe",
+      "iterations/iter_007/evidence/verify_metrics.py",
+      "results/exp002",
+      "iterations\\iter_010\\evidence\\evaluation"
+    ],
+    "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+    "exit_code": 0,
+    "log": "qa_metrics.log"
+  }
+]

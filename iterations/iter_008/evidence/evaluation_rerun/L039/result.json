@@ -1,0 +1,48 @@
+{
+  "id": "L039",
+  "rationale": "删除绑定文件会影响后续读取。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    }
+  },
+  "trajectory_sha256": "e4a61bd1620d333b7d102ca35713d0bdc9332e0db1649ffc319c75dd97a64a97",
+  "replays": []
+}

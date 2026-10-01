@@ -1,0 +1,68 @@
+{
+  "id": "L015",
+  "rationale": "结构绑定成立，但片段初始仓库多一个文件，重放枚举检查应拒绝。",
+  "expected": [
+    [
+      "a",
+      "b"
+    ]
+  ],
+  "predictions": {
+    "production": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  "scores": {
+    "production": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "naive": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "no_dependency_guard": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "trajectory_sha256": "99980a31ef0f6d400acd9baa1e60c63d528156ff134089d627c82428e54b5511",
+  "replays": [
+    {
+      "call_ids": [
+        "a",
+        "b"
+      ],
+      "status": "error",
+      "successful": false,
+      "error": "当前仓库枚举结果与前缀绑定不一致"
+    }
+  ]
+}

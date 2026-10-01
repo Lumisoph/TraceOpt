@@ -1,0 +1,68 @@
+{
+  "id": "L016",
+  "rationale": "后续返回失败不影响执行前缀的结构预测，但不符合成功历史重放前提。",
+  "expected": [
+    [
+      "a",
+      "b"
+    ]
+  ],
+  "predictions": {
+    "production": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  "scores": {
+    "production": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "naive": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "no_dependency_guard": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "trajectory_sha256": "5e7c4a3d85e20dab1266f35c42dc01481e7a79966ac81ef067d0c34a9fe06e9e",
+  "replays": [
+    {
+      "call_ids": [
+        "a",
+        "b"
+      ],
+      "status": "error",
+      "successful": false,
+      "error": "消费者缺少完整成功的历史结果，无法核对重放"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+﻿schema_version: 1
+iteration: 24
+phase: planning
+milestone: M4
+status:
+  plan: in_progress
+  development: pending
+  qa: pending
+  finalization: pending
+artifacts:
+  plan: iterations/iter_024/PLAN.md
+  development: iterations/iter_024/DEV_REPORT.md
+  qa: iterations/iter_024/QA_REPORT.md
+last_finalized_iteration: 23
+blockers: []
+capabilities:
+  trajectory: VERIFIED_FULL
+  canonical_ir: VERIFIED_FULL
+  command_semantics: VERIFIED_FULL
+  effects: VERIFIED_FULL
+  dependency: VERIFIED_FULL
+  runtime_binding: VERIFIED_LOCAL
+  determinism: VERIFIED_LOCAL
+  rewrite: VERIFIED_LOCAL
+  replay: VERIFIED_LOCAL
+  evaluation: VERIFIED_FULL
+  cli: VERIFIED_LOCAL
+  career_material: VERIFIED_LOCAL
+  release_package: VERIFIED_FULL
+defects:
+- id: BUG-001
+  status: VERIFIED_FIXED
+  summary: 评估调用字段缺失时提前拒绝，显式 null 保持有效
+  evidence: tests/test_evaluation_qa.py
+- id: BUG-002
+  status: VERIFIED_FIXED
+  summary: Responses API 适配保留 output 顺序、调用关联并拒绝未知内容
+  evidence: tests/test_response_qa.py
+latest_verified_experiment: EXP-002
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

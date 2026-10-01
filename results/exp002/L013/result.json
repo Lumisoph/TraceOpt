@@ -1,0 +1,68 @@
+{
+  "id": "L013",
+  "rationale": "生产者和消费者使用同一显式子目录上下文。",
+  "expected": [
+    [
+      "a",
+      "b"
+    ]
+  ],
+  "predictions": {
+    "production": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "naive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "no_dependency_guard": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  "scores": {
+    "production": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "naive": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "no_dependency_guard": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "trajectory_sha256": "789d1c554359f884316414e999ea892638d9432ac7affa1956e4ad8471813cfb",
+  "replays": [
+    {
+      "call_ids": [
+        "a",
+        "b"
+      ],
+      "status": "completed",
+      "successful": true,
+      "report": "L013/replay-0.json"
+    }
+  ]
+}

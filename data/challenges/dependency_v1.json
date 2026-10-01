@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "scope": "词法资源依赖，不是可执行性或性能标签",
+  "cases": [
+    {
+      "id": "DEP-001",
+      "commands": [
+        "cat a",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [],
+      "annotation": "同文件读读不冲突"
+    },
+    {
+      "id": "DEP-002",
+      "commands": [
+        "rm a",
+        "rm b"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [],
+      "annotation": "不相交路径写写不冲突"
+    },
+    {
+      "id": "DEP-003",
+      "commands": [
+        "rm a",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "写后读"
+    },
+    {
+      "id": "DEP-004",
+      "commands": [
+        "cat a",
+        "rm a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "读后写"
+    },
+    {
+      "id": "DEP-005",
+      "commands": [
+        "rm a",
+        "mkdir a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAW"
+      ],
+      "annotation": "写后写"
+    },
+    {
+      "id": "DEP-006",
+      "commands": [
+        "touch a",
+        "touch a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW",
+        "0:1:WAR",
+        "0:1:WAW"
+      ],
+      "annotation": "双方均读写"
+    },
+    {
+      "id": "DEP-007",
+      "commands": [
+        "cp a b",
+        "cat b"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "复制目标被读取"
+    },
+    {
+      "id": "DEP-008",
+      "commands": [
+        "cat a",
+        "cp b a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "复制覆盖已读资源"
+    },
+    {
+      "id": "DEP-009",
+      "commands": [
+        "cp a b",
+        "cp b c"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "复制链"
+    },
+    {
+      "id": "DEP-010",
+      "commands": [
+        "mv a b",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "移动删除源"
+    },
+    {
+      "id": "DEP-011",
+      "commands": [
+        "mv a b",
+        "cat b"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "移动写目标"
+    },
+    {
+      "id": "DEP-012",
+      "commands": [
+        "cat a",
+        "mv a b"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "移动修改已读源"
+    },
+    {
+      "id": "DEP-013",
+      "commands": [
+        "ls src",
+        "touch src/x"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "目录与子路径重叠"
+    },
+    {
+      "id": "DEP-014",
+      "commands": [
+        "mkdir src",
+        "find src -type f"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "目录创建后遍历"
+    },
+    {
+      "id": "DEP-015",
+      "commands": [
+        "rm a",
+        "cat ab"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [],
+      "annotation": "相似字符串前缀不是祖先"
+    },
+    {
+      "id": "DEP-016",
+      "commands": [
+        "rm a/b",
+        "cat a/c"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [],
+      "annotation": "兄弟资源不相交"
+    },
+    {
+      "id": "DEP-017",
+      "commands": [
+        "rm /",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "根资源保守覆盖所有后代"
+    },
+    {
+      "id": "DEP-018",
+      "commands": [
+        "cat /",
+        "rm a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "根资源读与子路径写重叠"
+    },
+    {
+      "id": "DEP-019",
+      "commands": [
+        "grep -F x a",
+        "rm a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "搜索后修改文件"
+    },
+    {
+      "id": "DEP-020",
+      "commands": [
+        "head a",
+        "tail a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [],
+      "annotation": "不同只读命令不冲突"
+    },
+    {
+      "id": "DEP-021",
+      "commands": [
+        "touch a",
+        "wc -l a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "修改后计数"
+    },
+    {
+      "id": "DEP-022",
+      "commands": [
+        "sort a",
+        "rm a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "读取排序输入后删除"
+    },
+    {
+      "id": "DEP-023",
+      "commands": [
+        "uniq a",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [],
+      "annotation": "去重和读取均不写文件"
+    },
+    {
+      "id": "DEP-024",
+      "commands": [
+        "find src -type f",
+        "rm src/a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "遍历子树后删除子文件"
+    },
+    {
+      "id": "DEP-025",
+      "commands": [
+        "rg --no-config --no-ignore x a",
+        "touch other"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "rg 保守读取 cwd 子树"
+    },
+    {
+      "id": "DEP-026",
+      "commands": [
+        "python x",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:BARRIER"
+      ],
+      "annotation": "未知调用在前"
+    },
+    {
+      "id": "DEP-027",
+      "commands": [
+        "cat a",
+        "python x"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:BARRIER"
+      ],
+      "annotation": "未知调用在后"
+    },
+    {
+      "id": "DEP-028",
+      "commands": [
+        "python x",
+        "bash y"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:BARRIER"
+      ],
+      "annotation": "双方未知"
+    },
+    {
+      "id": "DEP-029",
+      "commands": [
+        "cat a",
+        "cat b"
+      ],
+      "cwd": "",
+      "expected_edges": [
+        "0:1:BARRIER"
+      ],
+      "annotation": "缺少明确 cwd 保守处理"
+    },
+    {
+      "id": "DEP-030",
+      "commands": [
+        "rm a",
+        "cat ./a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "规范化同一资源"
+    },
+    {
+      "id": "DEP-031",
+      "commands": [
+        "mkdir a",
+        "cat a/../b"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "父目录遍历前提"
+    },
+    {
+      "id": "DEP-032",
+      "commands": [
+        "cat 'a b'",
+        "rm 'a b'"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAR"
+      ],
+      "annotation": "含空格的字面路径"
+    },
+    {
+      "id": "DEP-033",
+      "commands": [
+        "cp a a",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW"
+      ],
+      "annotation": "同一源目标的潜在写效果"
+    },
+    {
+      "id": "DEP-034",
+      "commands": [
+        "rm a",
+        "rm b",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:2:RAW"
+      ],
+      "annotation": "非相邻调用冲突"
+    },
+    {
+      "id": "DEP-035",
+      "commands": [
+        "cat a",
+        "rm b",
+        "cat c"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [],
+      "annotation": "三个独立路径"
+    },
+    {
+      "id": "DEP-036",
+      "commands": [
+        "rm a",
+        "cat a",
+        "rm a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:RAW",
+        "0:2:WAW",
+        "1:2:WAR"
+      ],
+      "annotation": "三种冲突链不传递约简"
+    },
+    {
+      "id": "DEP-037",
+      "commands": [
+        "cat a",
+        "python x",
+        "cat b"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:BARRIER",
+        "1:2:BARRIER"
+      ],
+      "annotation": "不能跨越中间屏障"
+    },
+    {
+      "id": "DEP-038",
+      "commands": [
+        "python x",
+        "cat a",
+        "cat b"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:BARRIER",
+        "0:2:BARRIER"
+      ],
+      "annotation": "首屏障约束所有后继"
+    },
+    {
+      "id": "DEP-039",
+      "commands": [
+        "cat a",
+        "cat b",
+        "python x"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:2:BARRIER",
+        "1:2:BARRIER"
+      ],
+      "annotation": "尾屏障受所有前驱约束"
+    },
+    {
+      "id": "DEP-040",
+      "commands": [
+        "rm a",
+        "mkdir a",
+        "cat a"
+      ],
+      "cwd": "/repo",
+      "expected_edges": [
+        "0:1:WAW",
+        "0:2:RAW",
+        "1:2:RAW"
+      ],
+      "annotation": "保留非相邻直接资源冲突"
+    }
+  ]
+}

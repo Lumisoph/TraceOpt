@@ -1,0 +1,44 @@
+{
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "commands": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_pytest.log"
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "examples",
+        "experiments"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_ruff.log"
+    }
+  ],
+  "source_hashes": {
+    "docs/interview/resume.md": "4022c8ab121981b6ba3281f0b501050d3ac0d9a62344b5d99178154404bbd4ae",
+    "docs/interview/talk.md": "4d92e9d2f3fbc654b8f6c9f49ab2a1bde80adf3dc3b5cc3965c5dfdff7d97a96",
+    "docs/architecture/overview.md": "9feedf76180f9ef8a4082307334d4320c73cddcc9f8855a1fc6804fe3ef90dcd",
+    "docs/release_audit.md": "c55cc5917390f5d578a34d5e3e6e78b148baeeb02fb637235456f7a0425c37b1",
+    "docs/interview/dependency.md": "1cc34dd8dddeca117d6bf46f11710d86857d09a9a516ea1f250655a978e63d6d",
+    "docs/interview/determinism.md": "db3fcf00f7795bcfd13e400a90191a490cdf00714163c40c5d28cc2a9fbf9b92",
+    "docs/interview/evaluation.md": "63e7f3a59c8890e975a4a3233ba18f16f3412cdc0c4d1c3714b8dabd1b91346a",
+    "docs/interview/INDEX.md": "f459a58460a7513e25d9d8cae422ee5e810477f2819545a8d0b9742aee76645e",
+    "docs/interview/replay.md": "3d2901ae0e4592bd19c80540fd26874e692a64423ed49c352db4e2ff082d53fb",
+    "docs/interview/trajectory.md": "341053450ae21cb311a22f903c4b0d09eaf28f98f6925d6fc4c38af5d992c1c4"
+  }
+}

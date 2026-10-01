@@ -1,0 +1,38 @@
+{
+  "id": "L023",
+  "rationale": "单路径不足以构成循环。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [],
+    "no_dependency_guard": []
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    }
+  },
+  "trajectory_sha256": "8cc1ea2875b5b30bd6bb67fba20b77d41bcb3b7508b1c1c05709acf43b8d9c03",
+  "replays": []
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "source": "G:\\Advance_tool_mining\\TraceOpt\\tests\\fixtures\\trajectory.json",
+  "source_sha256": "aa06809b714a03061bc975fb0d8f4bd212802cc5bfb14adc210744232d96401e",
+  "trajectory_format": "mini-swe-agent-1.1",
+  "instance_id": "synthetic-local",
+  "events": [
+    {
+      "index": 0,
+      "message_index": 0,
+      "kind": "message",
+      "role": "system",
+      "content": "人工测试样本",
+      "tool_index": null,
+      "call_id": null,
+      "tool_name": null,
+      "command": null,
+      "returncode": null,
+      "raw_output": null
+    },
+    {
+      "index": 1,
+      "message_index": 1,
+      "kind": "message",
+      "role": "user",
+      "content": "查看目录",
+      "tool_index": null,
+      "call_id": null,
+      "tool_name": null,
+      "command": null,
+      "returncode": null,
+      "raw_output": null
+    },
+    {
+      "index": 2,
+      "message_index": 2,
+      "kind": "message",
+      "role": "assistant",
+      "content": "调用工具",
+      "tool_index": null,
+      "call_id": null,
+      "tool_name": null,
+      "command": null,
+      "returncode": null,
+      "raw_output": null
+    },
+    {
+      "index": 3,
+      "message_index": 2,
+      "kind": "tool_call",
+      "role": "assistant",
+      "content": null,
+      "tool_index": 0,
+      "call_id": "call-1",
+      "tool_name": "bash",
+      "command": "pwd",
+      "returncode": null,
+      "raw_output": null
+    },
+    {
+      "index": 4,
+      "message_index": 2,
+      "kind": "tool_call",
+      "role": "assistant",
+      "content": null,
+      "tool_index": 1,
+      "call_id": "call-2",
+      "tool_name": "bash",
+      "command": "ls",
+      "returncode": null,
+      "raw_output": null
+    },
+    {
+      "index": 5,
+      "message_index": 3,
+      "kind": "tool_result",
+      "role": "tool",
+      "content": "路径观察",
+      "tool_index": null,
+      "call_id": "call-1",
+      "tool_name": "bash",
+      "command": null,
+      "returncode": 0,
+      "raw_output": "/sample\n"
+    },
+    {
+      "index": 6,
+      "message_index": 4,
+      "kind": "exit",
+      "role": "exit",
+      "content": "人工终止，保留未返回调用",
+      "tool_index": null,
+      "call_id": null,
+      "tool_name": null,
+      "command": null,
+      "returncode": null,
+      "raw_output": null
+    }
+  ],
+  "pending_call_ids": [
+    "call-2"
+  ]
+}

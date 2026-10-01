@@ -1,0 +1,73 @@
+{
+  "id": "L002",
+  "rationale": "三个文件的完整序列为一个循环，不能拆成两个文件的跨度。",
+  "expected": [
+    [
+      "a",
+      "b",
+      "c"
+    ]
+  ],
+  "predictions": {
+    "production": [
+      [
+        "a",
+        "b",
+        "c"
+      ]
+    ],
+    "naive": [
+      [
+        "a",
+        "b",
+        "c"
+      ]
+    ],
+    "no_dependency_guard": [
+      [
+        "a",
+        "b",
+        "c"
+      ]
+    ]
+  },
+  "scores": {
+    "production": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "naive": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "no_dependency_guard": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "trajectory_sha256": "07b38c4f8661498385a3935b1af7e1e5321cee59ff8115e3b0a021ee6c7dbfaa",
+  "replays": [
+    {
+      "call_ids": [
+        "a",
+        "b",
+        "c"
+      ],
+      "status": "completed",
+      "successful": true,
+      "report": "L002/replay-0.json"
+    }
+  ]
+}

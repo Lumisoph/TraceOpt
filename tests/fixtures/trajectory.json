@@ -1,0 +1,14 @@
+{
+  "trajectory_format": "mini-swe-agent-1.1",
+  "instance_id": "synthetic-local",
+  "messages": [
+    {"role": "system", "content": "人工测试样本"},
+    {"role": "user", "content": "查看目录"},
+    {"role": "assistant", "content": "调用工具", "tool_calls": [
+      {"id": "call-1", "type": "function", "function": {"name": "bash", "arguments": "{\"command\":\"pwd\"}"}},
+      {"id": "call-2", "type": "function", "function": {"name": "bash", "arguments": "{\"command\":\"ls\"}"}}
+    ]},
+    {"role": "tool", "tool_call_id": "call-1", "content": "路径观察", "extra": {"returncode": 0, "raw_output": "/sample\n"}},
+    {"role": "exit", "content": "人工终止，保留未返回调用"}
+  ]
+}

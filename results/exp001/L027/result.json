@@ -1,0 +1,38 @@
+{
+  "id": "L027",
+  "rationale": "只出现第一个消费者，候选计划没有完整后缀。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [],
+    "no_dependency_guard": []
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    }
+  },
+  "trajectory_sha256": "0f4831cdd3b92622498286fc1654303e0bcb5c6a3741eda7c628576db6b491a7",
+  "replays": []
+}

@@ -1,0 +1,38 @@
+{
+  "id": "L028",
+  "rationale": "循环消费者之间插入另一工具调用，跨度不连续。",
+  "expected": [],
+  "predictions": {
+    "production": [],
+    "naive": [],
+    "no_dependency_guard": []
+  },
+  "scores": {
+    "production": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "naive": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "no_dependency_guard": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    }
+  },
+  "trajectory_sha256": "8bada84b6e2c8a549a3ab9c3fe5c3b01538bb6b440ff6c2cfef01baed435544f",
+  "replays": []
+}

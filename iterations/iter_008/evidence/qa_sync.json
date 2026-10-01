@@ -1,0 +1,96 @@
+{
+  "iteration": 8,
+  "verdict": "passed",
+  "gate": "full",
+  "capabilities": {
+    "evaluation": "VERIFIED_FULL"
+  },
+  "defects": [
+    {
+      "id": "BUG-001",
+      "status": "VERIFIED_FIXED",
+      "summary": "评估调用缺少必需字段已在创建产物前拒绝；显式 null 保持有效",
+      "evidence": "tests/test_evaluation_qa.py"
+    }
+  ],
+  "experiments": {
+    "EXP-002": {
+      "status": "verified",
+      "commit": null,
+      "scope": "人工设计受控循环挑战集；非生产分布、非模型成本/速度收益",
+      "source_hashes": {
+        "src/traceopt/__init__.py": "832218b3e83759ebc6192430f0f0f45b767c712edb65fe1555450dc1bf596f06",
+        "src/traceopt/__main__.py": "16f9c06bb0393ecac5a070d13c647b67e55b480ba689ba6dcdba7aea891ed4e7",
+        "src/traceopt/binding.py": "f1acfd44fb97f5b01017af0eb9224a1e1e11473d5479a0f74c7a71dbc1affb77",
+        "src/traceopt/cli.py": "0d385c0dd4020e8c2235ef050740485be45b73a6896ebee048b57476e70e2cb6",
+        "src/traceopt/dependency.py": "ac7190e40417ed785f2bb025c3fdcc29a493d81090d90f905e12deab988d86c8",
+        "src/traceopt/evaluation.py": "d1ef0fa085246ad988862e348ece679cb59f24ad6df95aefb89d946be86bd700",
+        "src/traceopt/replay.py": "8a26596b894f93fb29450c752af01fdfa6d93170e52e92c9d6446787432dbf6f",
+        "src/traceopt/semantics.py": "accd4c223967494c38fa41fd2046a0a77c0da6d673e58a4fe3e4ab2aea3e6ff2",
+        "src/traceopt/trajectory.py": "93b097e8de330f1be18a0cc71e88a2abdb783c73c20b1bfe42a8a547de73b607"
+      },
+      "dataset": {
+        "name": "loops-v1",
+        "samples": 45,
+        "positive_cases": 17,
+        "path": "data/challenges/loops_v1.json",
+        "sha256": "95c886c2e69e7073bf8ad2396282af2d851357e544ee88828d4158c88e70a3ef"
+      },
+      "config": {
+        "path": "configs/eval_v1.json",
+        "sha256": "b3c0e65e487ceaf89b63ec90c096d953a3f2a23f36be58a413b1b49f2ddb7e76"
+      },
+      "artifacts": {
+        "raw": "results/exp002/raw.json",
+        "summary": "results/exp002/summary.json",
+        "manifest": "results/exp002/manifest.json"
+      },
+      "metrics": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "replay_success": 0.6666666666666666,
+        "methods": {
+          "production": {
+            "tp": 17,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "naive": {
+            "tp": 16,
+            "fp": 24,
+            "fn": 1,
+            "precision": 0.4,
+            "recall": 0.9411764705882353,
+            "f1": 0.5614035087719298
+          },
+          "no_dependency_guard": {
+            "tp": 17,
+            "fp": 7,
+            "fn": 0,
+            "precision": 0.7083333333333334,
+            "recall": 1.0,
+            "f1": 0.8292682926829268
+          }
+        },
+        "replay": {
+          "attempted": 12,
+          "successful": 8,
+          "failed": 4,
+          "not_applicable": 5,
+          "success_rate": 0.6666666666666666
+        }
+      },
+      "qa_evidence": {
+        "iteration": "iter_008",
+        "report": "iterations/iter_008/QA_REPORT.md",
+        "execution": "iterations/iter_008/evidence/qa_execution.json",
+        "independent_recalculation": "iterations/iter_008/evidence/qa_metrics.log"
+      }
+    }
+  },
+  "claims": []
+}

@@ -1,0 +1,100 @@
+{
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "commands": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-c",
+        "import re; from pathlib import Path; files=list(Path(\"docs/interview\").glob(\"*.md\")); assert sum(len(re.findall(r\"^## \",p.read_text(encoding=\"utf-8\"),re.M)) for p in files if p.name not in (\"INDEX.md\",\"resume.md\",\"talk.md\"))==30; print(\"30 interview answers\")"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "doc_links.log"
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "examples",
+        "experiments"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "ruff.log"
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "pytest.log"
+    }
+  ],
+  "source_hashes": {
+    "src/traceopt/binding.py": "f1acfd44fb97f5b01017af0eb9224a1e1e11473d5479a0f74c7a71dbc1affb77",
+    "src/traceopt/cli.py": "0d385c0dd4020e8c2235ef050740485be45b73a6896ebee048b57476e70e2cb6",
+    "src/traceopt/dependency.py": "ac7190e40417ed785f2bb025c3fdcc29a493d81090d90f905e12deab988d86c8",
+    "src/traceopt/evaluation.py": "d1ef0fa085246ad988862e348ece679cb59f24ad6df95aefb89d946be86bd700",
+    "src/traceopt/replay.py": "8a26596b894f93fb29450c752af01fdfa6d93170e52e92c9d6446787432dbf6f",
+    "src/traceopt/semantics.py": "accd4c223967494c38fa41fd2046a0a77c0da6d673e58a4fe3e4ab2aea3e6ff2",
+    "src/traceopt/trajectory.py": "93b097e8de330f1be18a0cc71e88a2abdb783c73c20b1bfe42a8a547de73b607",
+    "src/traceopt/__init__.py": "832218b3e83759ebc6192430f0f0f45b767c712edb65fe1555450dc1bf596f06",
+    "src/traceopt/__main__.py": "16f9c06bb0393ecac5a070d13c647b67e55b480ba689ba6dcdba7aea891ed4e7",
+    "tests/conftest.py": "22df1f25505beeed061c82d774c99890988c4b7ccf25cdcc09e6122a1ff67d52",
+    "tests/test_binding.py": "b07cab85986b2e636a20c23970e25b086f1e786974b4fa7edb73c7c5942db5d6",
+    "tests/test_binding_integration.py": "bd2833b8426224de335b8285915f584376c21b3b0aa9069611c5413edb6843a8",
+    "tests/test_binding_qa.py": "aadc68c45ca7be3100199179d7b618b22e9b1e40686def590af0cfd2e0fa4960",
+    "tests/test_cli.py": "010fb2ecc08d8d7e5127ee75dc49e9d07eeb43026a14270fc48fdf712498de9d",
+    "tests/test_cli_qa.py": "7ccc6b96edceea05d7054ed6208306948b1f8df4cb3a267e8d2de82c199b0713",
+    "tests/test_dependency.py": "5898c2c6c58e442ba53d3f10c079214fb5cc3a9eec10ea18ab3fcb5a55cdb132",
+    "tests/test_dependency_challenges.py": "6a4842d57670004249ac93747f423be362bc71b578ed7f620a417aa419023073",
+    "tests/test_dependency_integration.py": "3625d28fef0f667520797636878f9f97c9cb763f7aa79ea68086b550ec1335de",
+    "tests/test_dependency_qa.py": "c388f169d853e75103880b2ed6802d9d32f9d8e14201d171de2ff952351addc1",
+    "tests/test_evaluation.py": "94f74dab8225e8db9f924f04ea28eb8bc362e334bdcd06af4e7400af1d979a3a",
+    "tests/test_evaluation_qa.py": "9ce20ecae443f293b917aabd3ebfe698265e68492e1f411776fbfea9eef36e78",
+    "tests/test_replay.py": "344fc3fa5cb09987079c089a64d3460b3e3c2208d8c1754db3ac01da0872d077",
+    "tests/test_replay_integration.py": "48c73e6909a40e0da9f5fafab9514cde9fc3d53dac1a3b68dfe5676dd88b1f8b",
+    "tests/test_replay_qa.py": "b45f87f925126b6e823e3ad03b4932c475ce649a31016fb1142e9e34f4725cdc",
+    "tests/test_semantics.py": "71c4505bd1d259166f955312296f9508d6d7b17a19f33c634759b2a43e544400",
+    "tests/test_semantics_qa.py": "b7f90b6174596e3ffdd55c14cea4bcd24d9ede5aa6077e541ccc55caaf4fc67d",
+    "tests/test_trajectory.py": "a1ebc18081aa8d4aea53ed7d95b69ee3b83991e053cf417f047164114fa954d2",
+    "tests/test_trajectory_integration.py": "9ed938d6f9e62576060615e8b2afead22a47f04e87f443dd5024a618fd6532fc",
+    "tests/test_trajectory_qa.py": "65d49495e8136af02f93578687c25b6c6dcda7869bbfc8b03d34a064aa469b32",
+    "docs/release_audit.md": "c55cc5917390f5d578a34d5e3e6e78b148baeeb02fb637235456f7a0425c37b1",
+    "docs/architecture/canonical_ir.md": "89b1cb6e9f2bb2be95ede47363f0abe0c26de70c4967c30fdff93bc1cb9647eb",
+    "docs/architecture/command_semantics.md": "717ea3d458e758ffa566cc8481f74204b178f004face43d5f33fce8a99358c60",
+    "docs/architecture/dependency.md": "3489c111a66cb7d4cc1f861fbe0058f3b62d9e57ab55e5732f37db807383e1ec",
+    "docs/architecture/determinism.md": "861b0ac7c18949e97807b65400d339c082afba093f3b1bf3e6dc3e6b7e8c4e6d",
+    "docs/architecture/effects.md": "2554a493d2e2b7bbd452fd5282c1cc978c1d303d3744d6031583e3c3ed672627",
+    "docs/architecture/evaluation.md": "fdf7f20f25335609a2a734fb809c84c02f7072c1cc1b660e759fb752b43880a4",
+    "docs/architecture/INDEX.md": "3054a372f0dd8c7ddb6b348b1a42ab74c3a5f6d9aee12a78d310f0b76725b398",
+    "docs/architecture/overview.md": "9feedf76180f9ef8a4082307334d4320c73cddcc9f8855a1fc6804fe3ef90dcd",
+    "docs/architecture/replay.md": "a9cdf28678d91189cad298a93eb7de3589cd5ba4bb180ade20b9f0918b1feba4",
+    "docs/architecture/rewrite.md": "a4acda1402798d7b2f3e3a262dd6f39be2c1b6e97babd8f490fee22f07cf84e4",
+    "docs/architecture/runtime_binding.md": "7b677fe33d5120724675f51bd0007330925bfa94e898175462776131af9cc3a5",
+    "docs/decisions/INDEX.md": "00a4552d8976e1f621c0aee3c74a4883943c11d991b7d4f7b31ddcff4a7b1900",
+    "docs/experiments/EXP-001-controlled-loops.md": "ddbb1affa8c1261e513feed95662b2f91bddab4648c5955202296e7bdd0cd137",
+    "docs/experiments/EXP-002-controlled-loops.md": "bff41b830650a90122f66b8bd138eaf3928150156992f536fe082d512a0ed871",
+    "docs/experiments/INDEX.md": "d4d67b78a49b9da31142c938e1eac8c3dc8de4cafa57b084a58bd96ef396fed1",
+    "docs/interview/dependency.md": "1cc34dd8dddeca117d6bf46f11710d86857d09a9a516ea1f250655a978e63d6d",
+    "docs/interview/determinism.md": "db3fcf00f7795bcfd13e400a90191a490cdf00714163c40c5d28cc2a9fbf9b92",
+    "docs/interview/evaluation.md": "63e7f3a59c8890e975a4a3233ba18f16f3412cdc0c4d1c3714b8dabd1b91346a",
+    "docs/interview/INDEX.md": "f459a58460a7513e25d9d8cae422ee5e810477f2819545a8d0b9742aee76645e",
+    "docs/interview/replay.md": "3d2901ae0e4592bd19c80540fd26874e692a64423ed49c352db4e2ff082d53fb",
+    "docs/interview/resume.md": "4022c8ab121981b6ba3281f0b501050d3ac0d9a62344b5d99178154404bbd4ae",
+    "docs/interview/talk.md": "4d92e9d2f3fbc654b8f6c9f49ab2a1bde80adf3dc3b5cc3965c5dfdff7d97a96",
+    "docs/interview/trajectory.md": "341053450ae21cb311a22f903c4b0d09eaf28f98f6925d6fc4c38af5d992c1c4",
+    "README.md": "1792f317d5a4db4e62649daeceb095c738c3cbaa98a0456c641a2e8c90000be7",
+    "CLAIMS.md": "4506e724eeab450db113a6235fe405bc29321bf2fc82bdae06b6d12ccfc21ab7",
+    "RELEASE_CRITERIA.md": "0d2d3f72d1bb608e0e7a1c4544b25008dc36b5916639c7be4bbbd9b1a8aaf7c5"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "source": "G:\\Advance_tool_mining\\TraceOpt\\tests\\fixtures\\trajectory.json",
+  "source_sha256": "aa06809b714a03061bc975fb0d8f4bd212802cc5bfb14adc210744232d96401e",
+  "trajectory_format": "mini-swe-agent-1.1",
+  "instance_id": "synthetic-local",
+  "message_count": 5,
+  "event_count": 7,
+  "tool_call_count": 2,
+  "tool_result_count": 1,
+  "pending_call_ids": [
+    "call-2"
+  ]
+}

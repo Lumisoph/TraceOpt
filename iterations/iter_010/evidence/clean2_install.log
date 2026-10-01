@@ -1,0 +1,16 @@
+Obtaining file:///G:/Advance_tool_mining/TraceOpt
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: traceopt
+  Building editable for traceopt (pyproject.toml): started
+  Building editable for traceopt (pyproject.toml): finished with status 'done'
+  Created wheel for traceopt: filename=traceopt-0.1.0.dev0-0.editable-py3-none-any.whl size=1640 sha256=4aaf2b13d2bb386b7360e6a6b0e7688aaf00733232dee44d00edb7b16cb7ba21
+  Stored in directory: C:\Users\asus\AppData\Local\Temp\pip-ephem-wheel-cache-q58j5q46\wheels\5f\52\aa\80022e9001e879581674169da41485ff1aa7bb9d97e8ffbe4d
+Successfully built traceopt
+Installing collected packages: traceopt
+Successfully installed traceopt-0.1.0.dev0
+
+[notice] A new release of pip is available: 25.1.1 -> 26.2.1
+[notice] To update, run: C:\Users\asus\AppData\Local\Temp\traceopt-clean2-saddfeoc\venv\Scripts\python.exe -m pip install --upgrade pip

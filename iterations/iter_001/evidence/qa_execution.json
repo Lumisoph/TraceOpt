@@ -1,0 +1,67 @@
+{
+  "timestamp": "2026-09-22T10:02:25.225908+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "Python 3.13.5",
+  "commit": null,
+  "checks": [
+    {
+      "name": "qa_pytest",
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "iterations/iter_001/evidence/qa_pytest.log"
+    },
+    {
+      "name": "qa_ruff",
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "iterations/iter_001/evidence/qa_ruff.log"
+    },
+    {
+      "name": "qa_environment",
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "freeze"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "iterations/iter_001/evidence/qa_environment.log"
+    },
+    {
+      "name": "qa_api",
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv\\Scripts\\python.exe",
+        "-c",
+        "from traceopt import load_trajectory; t=load_trajectory(\"tests/fixtures/trajectory.json\"); assert t.pending_call_ids == (\"call-2\",); print(\"API smoke passed\")"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "iterations/iter_001/evidence/qa_api.log"
+    }
+  ],
+  "source_hashes": {
+    "pyproject.toml": "d28d33736b7da106beba8a440dbbbb5b5520c0c12442cbe5dbb0e009ab9c8439",
+    "src/traceopt/trajectory.py": "93b097e8de330f1be18a0cc71e88a2abdb783c73c20b1bfe42a8a547de73b607",
+    "src/traceopt/__init__.py": "d56ad179c1b263f53b5ad20700027a5df501de4e368b13678d137c9a23b6d66a",
+    "tests/test_trajectory.py": "a1ebc18081aa8d4aea53ed7d95b69ee3b83991e053cf417f047164114fa954d2",
+    "tests/test_trajectory_integration.py": "d184879e415677191ab4bf6b01e718b73fffa580116366da9d2a57a3112f7cfc",
+    "tests/test_trajectory_qa.py": "65d49495e8136af02f93578687c25b6c6dcda7869bbfc8b03d34a064aa469b32",
+    "tests/fixtures/provenance.json": "01240d0e2fded6f22ed8e0cae1921bd7efbc68755ed2b4f18e1396d852a2aa79",
+    "tests/fixtures/trajectory.json": "aa06809b714a03061bc975fb0d8f4bd212802cc5bfb14adc210744232d96401e"
+  }
+}

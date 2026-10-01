@@ -1,0 +1,102 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "commands": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_trajectory_integration.py"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "real.log"
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_response_qa.py"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_response.log"
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "full.log"
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "examples",
+        "experiments"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "ruff.log"
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "traceopt",
+        "inspect",
+        "swe-bench-top11/06_20260217_mini-v2.0.0_gpt-5-2-high/trajs/astropy__astropy-12907/astropy__astropy-12907.traj.json"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "cli.log"
+    }
+  ],
+  "source_hashes": {
+    "src/traceopt/binding.py": "f1acfd44fb97f5b01017af0eb9224a1e1e11473d5479a0f74c7a71dbc1affb77",
+    "src/traceopt/cli.py": "0d385c0dd4020e8c2235ef050740485be45b73a6896ebee048b57476e70e2cb6",
+    "src/traceopt/dependency.py": "ac7190e40417ed785f2bb025c3fdcc29a493d81090d90f905e12deab988d86c8",
+    "src/traceopt/evaluation.py": "d1ef0fa085246ad988862e348ece679cb59f24ad6df95aefb89d946be86bd700",
+    "src/traceopt/replay.py": "8a26596b894f93fb29450c752af01fdfa6d93170e52e92c9d6446787432dbf6f",
+    "src/traceopt/semantics.py": "accd4c223967494c38fa41fd2046a0a77c0da6d673e58a4fe3e4ab2aea3e6ff2",
+    "src/traceopt/trajectory.py": "985d0cb54d44e8a48281c07ac425787f9683edb6293233d5523266d467c2faba",
+    "src/traceopt/__init__.py": "832218b3e83759ebc6192430f0f0f45b767c712edb65fe1555450dc1bf596f06",
+    "src/traceopt/__main__.py": "16f9c06bb0393ecac5a070d13c647b67e55b480ba689ba6dcdba7aea891ed4e7",
+    "tests/conftest.py": "22df1f25505beeed061c82d774c99890988c4b7ccf25cdcc09e6122a1ff67d52",
+    "tests/test_binding.py": "b07cab85986b2e636a20c23970e25b086f1e786974b4fa7edb73c7c5942db5d6",
+    "tests/test_binding_integration.py": "bd2833b8426224de335b8285915f584376c21b3b0aa9069611c5413edb6843a8",
+    "tests/test_binding_qa.py": "aadc68c45ca7be3100199179d7b618b22e9b1e40686def590af0cfd2e0fa4960",
+    "tests/test_cli.py": "010fb2ecc08d8d7e5127ee75dc49e9d07eeb43026a14270fc48fdf712498de9d",
+    "tests/test_cli_qa.py": "7ccc6b96edceea05d7054ed6208306948b1f8df4cb3a267e8d2de82c199b0713",
+    "tests/test_dependency.py": "5898c2c6c58e442ba53d3f10c079214fb5cc3a9eec10ea18ab3fcb5a55cdb132",
+    "tests/test_dependency_challenges.py": "6a4842d57670004249ac93747f423be362bc71b578ed7f620a417aa419023073",
+    "tests/test_dependency_integration.py": "3625d28fef0f667520797636878f9f97c9cb763f7aa79ea68086b550ec1335de",
+    "tests/test_dependency_qa.py": "c388f169d853e75103880b2ed6802d9d32f9d8e14201d171de2ff952351addc1",
+    "tests/test_evaluation.py": "94f74dab8225e8db9f924f04ea28eb8bc362e334bdcd06af4e7400af1d979a3a",
+    "tests/test_evaluation_qa.py": "9ce20ecae443f293b917aabd3ebfe698265e68492e1f411776fbfea9eef36e78",
+    "tests/test_replay.py": "344fc3fa5cb09987079c089a64d3460b3e3c2208d8c1754db3ac01da0872d077",
+    "tests/test_replay_integration.py": "48c73e6909a40e0da9f5fafab9514cde9fc3d53dac1a3b68dfe5676dd88b1f8b",
+    "tests/test_replay_qa.py": "b45f87f925126b6e823e3ad03b4932c475ce649a31016fb1142e9e34f4725cdc",
+    "tests/test_response_qa.py": "7c210a3da63f88219dad2f8e02bd008121b96b433eca9dfc713a883d5e6cb9fb",
+    "tests/test_semantics.py": "71c4505bd1d259166f955312296f9508d6d7b17a19f33c634759b2a43e544400",
+    "tests/test_semantics_qa.py": "b7f90b6174596e3ffdd55c14cea4bcd24d9ede5aa6077e541ccc55caaf4fc67d",
+    "tests/test_trajectory.py": "919469109a3b22a0287b1a67daccfaf834a8b707cb04827c9b39ae3dce6d411f",
+    "tests/test_trajectory_integration.py": "61b1d72259886da17769987030747851eb77e4da96f00a51eeca2b6069dbdc2b",
+    "tests/test_trajectory_qa.py": "65d49495e8136af02f93578687c25b6c6dcda7869bbfc8b03d34a064aa469b32",
+    "tests/fixtures/cli_sources.json": "b32dedeb64a33c3e1e2ae29b53d01e64fd63537e63f25d9e9e2d1987b8cccdda",
+    "tests/fixtures/provenance.json": "01240d0e2fded6f22ed8e0cae1921bd7efbc68755ed2b4f18e1396d852a2aa79",
+    "tests/fixtures/trajectory.json": "aa06809b714a03061bc975fb0d8f4bd212802cc5bfb14adc210744232d96401e"
+  }
+}

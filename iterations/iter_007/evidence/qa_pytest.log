@@ -1,0 +1,94 @@
+........................................................................ [ 22%]
+........................................................................ [ 45%]
+............................................FF.......................... [ 68%]
+........................................................................ [ 90%]
+.............................                                            [100%]
+================================== FAILURES ===================================
+__ test_missing_required_call_field_rejected_before_creating_output[output] ___
+
+tmp_path = WindowsPath('C:/Users/asus/AppData/Local/Temp/pytest-of-衎盈/pytest-22/test_missing_required_call_fie0')
+field = 'output'
+
+    @pytest.mark.parametrize("field", ["output", "cwd"])
+    def test_missing_required_call_field_rejected_before_creating_output(tmp_path, field):
+        data = {"schema_version": 1, "cases": [deepcopy(DATA["cases"][0])]}
+        del data["cases"][0]["steps"][0][field]
+        (tmp_path / "data.json").write_text(json.dumps(data), encoding="utf-8")
+        config = tmp_path / "config.json"
+        config.write_text(json.dumps({"schema_version": 1, "dataset": "data.json", "timeout": 10}),
+                          encoding="utf-8")
+        with pytest.raises(ValueError, match="字段"):
+>           run_evaluation(config, tmp_path / "output")
+
+tests\test_evaluation_qa.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\traceopt\evaluation.py:200: in run_evaluation
+    trajectory, contexts = _trajectory(case, folder)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'expected': [['a', 'b']], 'id': 'L001', 'rationale': 'NUL 枚举后按原顺序读取两个普通文件，形成完整绑定循环。', 'repository': {'src/a': 'alpha\n', 'src/b': 'beta\n'}, ...}
+folder = WindowsPath('C:/Users/asus/AppData/Local/Temp/pytest-of-衎盈/pytest-22/test_missing_required_call_fie0/output/L001')
+
+    def _trajectory(case, folder):
+        messages, contexts = [], {}
+        for step in case["steps"]:
+            if step.get("role") in ("user", "system"):
+                messages.append({"role": step["role"], "content": step["content"]})
+                continue
+            cid = step["id"]
+            if step["cwd"] is not None:
+                contexts[cid] = step["cwd"]
+            messages.extend([
+                {"role": "assistant", "content": "人工挑战步骤", "tool_calls": [
+                    {"id": cid, "type": "function", "function": {
+                        "name": "bash", "arguments": json.dumps({"command": step["command"]})}}]},
+>               {"role": "tool", "tool_call_id": cid, "content": step["output"] or "",
+                                                                 ^^^^^^^^^^^^^^
+                 "extra": {"returncode": step["returncode"], "raw_output": step["output"]}},
+            ])
+E           KeyError: 'output'
+
+src\traceopt\evaluation.py:158: KeyError
+____ test_missing_required_call_field_rejected_before_creating_output[cwd] ____
+
+tmp_path = WindowsPath('C:/Users/asus/AppData/Local/Temp/pytest-of-衎盈/pytest-22/test_missing_required_call_fie1')
+field = 'cwd'
+
+    @pytest.mark.parametrize("field", ["output", "cwd"])
+    def test_missing_required_call_field_rejected_before_creating_output(tmp_path, field):
+        data = {"schema_version": 1, "cases": [deepcopy(DATA["cases"][0])]}
+        del data["cases"][0]["steps"][0][field]
+        (tmp_path / "data.json").write_text(json.dumps(data), encoding="utf-8")
+        config = tmp_path / "config.json"
+        config.write_text(json.dumps({"schema_version": 1, "dataset": "data.json", "timeout": 10}),
+                          encoding="utf-8")
+        with pytest.raises(ValueError, match="字段"):
+>           run_evaluation(config, tmp_path / "output")
+
+tests\test_evaluation_qa.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\traceopt\evaluation.py:200: in run_evaluation
+    trajectory, contexts = _trajectory(case, folder)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'expected': [['a', 'b']], 'id': 'L001', 'rationale': 'NUL 枚举后按原顺序读取两个普通文件，形成完整绑定循环。', 'repository': {'src/a': 'alpha\n', 'src/b': 'beta\n'}, ...}
+folder = WindowsPath('C:/Users/asus/AppData/Local/Temp/pytest-of-衎盈/pytest-22/test_missing_required_call_fie1/output/L001')
+
+    def _trajectory(case, folder):
+        messages, contexts = [], {}
+        for step in case["steps"]:
+            if step.get("role") in ("user", "system"):
+                messages.append({"role": step["role"], "content": step["content"]})
+                continue
+            cid = step["id"]
+>           if step["cwd"] is not None:
+               ^^^^^^^^^^^
+E           KeyError: 'cwd'
+
+src\traceopt\evaluation.py:152: KeyError
+=========================== short test summary info ===========================
+FAILED tests/test_evaluation_qa.py::test_missing_required_call_field_rejected_before_creating_output[output]
+FAILED tests/test_evaluation_qa.py::test_missing_required_call_field_rejected_before_creating_output[cwd]
+2 failed, 315 passed in 7.44s

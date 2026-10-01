@@ -1,0 +1,12 @@
+E501 Line too long (104 > 100)
+  --> src\traceopt\cli.py:41:85
+   |
+39 |         child = subparsers.add_parser(name, help=description, description=description)
+40 |         child.add_argument("input", metavar="输入文件", type=Path, help="UTF-8 轨迹 JSON 文件")
+41 |         child.add_argument("--output", metavar="输出文件", type=Path, help="创建新文件，不覆盖已有文件")
+   |                                                                                                     ^^^^
+42 |     args = parser.parse_args(argv)
+43 |     try:
+   |
+
+Found 1 error.

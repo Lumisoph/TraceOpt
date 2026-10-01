@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "cwd_policy": "explicit_fixed",
+  "source_sha256": "aa06809b714a03061bc975fb0d8f4bd212802cc5bfb14adc210744232d96401e",
+  "call_ids": [
+    "call-1",
+    "call-2"
+  ],
+  "event_indices": [
+    3,
+    4
+  ],
+  "effects": [
+    {
+      "command": "pwd",
+      "argv": [
+        "pwd"
+      ],
+      "cwd": "/repo",
+      "reads": [],
+      "writes": [],
+      "unknown": true,
+      "reason": "命令不在支持白名单中"
+    },
+    {
+      "command": "ls",
+      "argv": [
+        "ls"
+      ],
+      "cwd": "/repo",
+      "reads": [],
+      "writes": [],
+      "unknown": true,
+      "reason": "必须显式提供路径，且不支持后置选项或标准输入"
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "kind": "BARRIER",
+      "left_resource": null,
+      "right_resource": null
+    }
+  ]
+}

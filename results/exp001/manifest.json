@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "scope": "人工设计受控挑战集，非生产分布或模型成本实验",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "command": [
+    "G:\\Advance_tool_mining\\TraceOpt\\.venv\\Scripts\\python.exe",
+    "experiments/evaluate.py",
+    "configs/eval_v1.json",
+    "results/exp001"
+  ],
+  "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+  "started_at": "2026-09-23T00:28:50.570898+00:00",
+  "config": "G:\\Advance_tool_mining\\TraceOpt\\configs\\eval_v1.json",
+  "config_sha256": "b3c0e65e487ceaf89b63ec90c096d953a3f2a23f36be58a413b1b49f2ddb7e76",
+  "dataset": "G:\\Advance_tool_mining\\TraceOpt\\data\\challenges\\loops_v1.json",
+  "dataset_sha256": "95c886c2e69e7073bf8ad2396282af2d851357e544ee88828d4158c88e70a3ef",
+  "source_hashes": {
+    "__init__.py": "832218b3e83759ebc6192430f0f0f45b767c712edb65fe1555450dc1bf596f06",
+    "__main__.py": "16f9c06bb0393ecac5a070d13c647b67e55b480ba689ba6dcdba7aea891ed4e7",
+    "binding.py": "f1acfd44fb97f5b01017af0eb9224a1e1e11473d5479a0f74c7a71dbc1affb77",
+    "cli.py": "0d385c0dd4020e8c2235ef050740485be45b73a6896ebee048b57476e70e2cb6",
+    "dependency.py": "ac7190e40417ed785f2bb025c3fdcc29a493d81090d90f905e12deab988d86c8",
+    "evaluation.py": "ecddc7b0e5ba0fef7032640c8f10f71573c834af23ce0d47905d11b982c1ad08",
+    "replay.py": "8a26596b894f93fb29450c752af01fdfa6d93170e52e92c9d6446787432dbf6f",
+    "semantics.py": "accd4c223967494c38fa41fd2046a0a77c0da6d673e58a4fe3e4ab2aea3e6ff2",
+    "trajectory.py": "93b097e8de330f1be18a0cc71e88a2abdb783c73c20b1bfe42a8a547de73b607"
+  },
+  "scoring_unit": "案例 ID 与完整连续调用 ID 序列；微平均；重复跨度去重",
+  "replay_denominator": "生产检测的全部 cat 候选；错误和历史不符均计入失败"
+}

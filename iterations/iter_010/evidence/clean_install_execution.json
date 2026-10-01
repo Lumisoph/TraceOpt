@@ -1,0 +1,58 @@
+{
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "commands": [
+    {
+      "name": "clean2_venv_create",
+      "command": [
+        "python",
+        "-m",
+        "venv",
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-clean2-saddfeoc\\venv"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "clean2_venv_create.log"
+    },
+    {
+      "name": "clean2_build_deps",
+      "command": [
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-clean2-saddfeoc\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "setuptools>=68"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "clean2_build_deps.log"
+    },
+    {
+      "name": "clean2_install",
+      "command": [
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-clean2-saddfeoc\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--no-build-isolation",
+        "-e",
+        "G:\\Advance_tool_mining\\TraceOpt"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "clean2_install.log"
+    },
+    {
+      "name": "clean2_import",
+      "command": [
+        "C:\\Users\\asus\\AppData\\Local\\Temp\\traceopt-clean2-saddfeoc\\venv\\Scripts\\python.exe",
+        "-c",
+        "from traceopt import load_trajectory; print(load_trajectory(\"tests/fixtures/trajectory.json\").trajectory_format)"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "clean2_import.log"
+    }
+  ]
+}

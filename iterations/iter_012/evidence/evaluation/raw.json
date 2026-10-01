@@ -1,0 +1,2373 @@
+[
+  {
+    "id": "L001",
+    "rationale": "NUL 枚举后按原顺序读取两个普通文件，形成完整绑定循环。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "99980a31ef0f6d400acd9baa1e60c63d528156ff134089d627c82428e54b5511",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "completed",
+        "successful": true,
+        "report": "L001/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L002",
+    "rationale": "三个文件的完整序列为一个循环，不能拆成两个文件的跨度。",
+    "expected": [
+      [
+        "a",
+        "b",
+        "c"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "07b38c4f8661498385a3935b1af7e1e5321cee59ff8115e3b0a021ee6c7dbfaa",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b",
+          "c"
+        ],
+        "status": "completed",
+        "successful": true,
+        "report": "L002/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L003",
+    "rationale": "被引号保护的空格路径不改变文件身份。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "4665e4b7d58364011271f34c6f995cb4831fd6a53301e1e92673f4a2a433da05",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "completed",
+        "successful": true,
+        "report": "L003/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L004",
+    "rationale": "枚举与读取均使用绝对虚拟路径。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "43542d2176ae7f1eae180535338d3fe941af4f89435f0bc8eb396c24443dd818",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "completed",
+        "successful": true,
+        "report": "L004/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L005",
+    "rationale": "显式点目录不改变普通路径身份。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "5a0e9c9ec2407f722bc94fba06903945ce85c90dac9558011b955f09e5e40dec",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "completed",
+        "successful": true,
+        "report": "L005/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L006",
+    "rationale": "head -n 1 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "1724e88e5cafa2b9b0d8e58f613df0db5167028147f3adb839547f19e38003f0",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "not_applicable",
+        "reason": "当前重放器仅支持 cat 模板"
+      }
+    ]
+  },
+  {
+    "id": "L007",
+    "rationale": "tail -n 1 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "96d3a77b4c66e1aadcce025ec92b5fed7bfa7e76a81567eec112cf7a1e448086",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "not_applicable",
+        "reason": "当前重放器仅支持 cat 模板"
+      }
+    ]
+  },
+  {
+    "id": "L008",
+    "rationale": "wc -l 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "021bb54cd32af3895c1156aa18795c87a4f346964be817d3564389ff887a5e49",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "not_applicable",
+        "reason": "当前重放器仅支持 cat 模板"
+      }
+    ]
+  },
+  {
+    "id": "L009",
+    "rationale": "sort 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "0d4b753006831a62417ad27956069dbdadedc6fe6e16dc2aed481debe176528e",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "not_applicable",
+        "reason": "当前重放器仅支持 cat 模板"
+      }
+    ]
+  },
+  {
+    "id": "L010",
+    "rationale": "uniq 单文件只读模板在检测范围内，但不在 cat 重放范围内。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "50fe2b56238f340eff78bc57ea8c54b12d509e87ee320c202c099d954e18d119",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "not_applicable",
+        "reason": "当前重放器仅支持 cat 模板"
+      }
+    ]
+  },
+  {
+    "id": "L011",
+    "rationale": "枚举后写入独立子树不影响枚举根与绑定文件。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "d2afb1c35ba3e14653e4161fd23235c347cc4255b1578df51a9e47c0bb069402",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "completed",
+        "successful": true,
+        "report": "L011/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L012",
+    "rationale": "枚举后读取独立文件不产生写依赖，生产循环从 a 开始；基线可能错误合并额外读取。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "x",
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "5e4bb35ca036702b92a7638ae11f53dd10f0747af91bcf989277583090860607",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "completed",
+        "successful": true,
+        "report": "L012/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L013",
+    "rationale": "生产者和消费者使用同一显式子目录上下文。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "789d1c554359f884316414e999ea892638d9432ac7affa1956e4ad8471813cfb",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "completed",
+        "successful": true,
+        "report": "L013/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L014",
+    "rationale": "结构绑定成立，但历史输出与仓库不一致；检测正例不等于重放成功。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "0153844b923fe031e6b5a5be8bf056929a2b3c682a9cede4d318949acdb0eacd",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "completed",
+        "successful": false,
+        "report": "L014/replay-0.json"
+      }
+    ]
+  },
+  {
+    "id": "L015",
+    "rationale": "结构绑定成立，但片段初始仓库多一个文件，重放枚举检查应拒绝。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "99980a31ef0f6d400acd9baa1e60c63d528156ff134089d627c82428e54b5511",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "error",
+        "successful": false,
+        "error": "当前仓库枚举结果与前缀绑定不一致"
+      }
+    ]
+  },
+  {
+    "id": "L016",
+    "rationale": "后续返回失败不影响执行前缀的结构预测，但不符合成功历史重放前提。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "5e7c4a3d85e20dab1266f35c42dc01481e7a79966ac81ef067d0c34a9fe06e9e",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "error",
+        "successful": false,
+        "error": "消费者缺少完整成功的历史结果，无法核对重放"
+      }
+    ]
+  },
+  {
+    "id": "L017",
+    "rationale": "后续 raw_output 缺失不影响结构匹配，重放必须拒绝而非跳过失败。",
+    "expected": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "predictions": {
+      "production": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "naive": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_dependency_guard": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "trajectory_sha256": "6b2ef25554d0c27f844eca6db375c32540ad5ae94ff8556ea29d64d53e8d4f21",
+    "replays": [
+      {
+        "call_ids": [
+          "a",
+          "b"
+        ],
+        "status": "error",
+        "successful": false,
+        "error": "消费者缺少完整成功的历史结果，无法核对重放"
+      }
+    ]
+  },
+  {
+    "id": "L018",
+    "rationale": "失败的 find 输出不能作为可靠绑定来源。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "49283306fcbd8186fff3c50a44cca156e54a3aee27a5bad2c98757a621b28248",
+    "replays": []
+  },
+  {
+    "id": "L019",
+    "rationale": "没有原始输出，不能从展示文本或未来调用反推列表。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "2ec4ea8544c0d2a1a5b2d68a728c487f76ac1082f414f5657459973ddf57be02",
+    "replays": []
+  },
+  {
+    "id": "L020",
+    "rationale": "换行分隔不能按 NUL 契约解析，存在文件名歧义。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "4be3b91c4b3466f18c00583c70f2908de7e5d2fac4e05c16eb01e5e70875b66a",
+    "replays": []
+  },
+  {
+    "id": "L021",
+    "rationale": "末尾 NUL 缺失，列表可能被截断。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "708ab9460ddf4f38d64f24b29e67f6a3e2ad3ffd0b22d66b18a0c2eee6ee6f60",
+    "replays": []
+  },
+  {
+    "id": "L022",
+    "rationale": "重复绑定路径不符合唯一文件枚举契约。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "9d7e7b344c11f9d589997c03ad27399b928cc06e588d1a58d32f995de1c5c188",
+    "replays": []
+  },
+  {
+    "id": "L023",
+    "rationale": "单路径不足以构成循环。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "8cc1ea2875b5b30bd6bb67fba20b77d41bcb3b7508b1c1c05709acf43b8d9c03",
+    "replays": []
+  },
+  {
+    "id": "L024",
+    "rationale": "枚举输出越过 producer 的根目录，不能信任。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "4f1ab4631cd21569ea0a46deb76c366b8623ac4b6c1cb7b0fa37471950da26ee",
+    "replays": []
+  },
+  {
+    "id": "L025",
+    "rationale": "消费者颠倒枚举顺序，不能匹配固定 identity 绑定。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "e4fa74c92fa7611ba37d95d9b3c5c527b4ef221682e84f454a8b9d453e0c9694",
+    "replays": []
+  },
+  {
+    "id": "L026",
+    "rationale": "两个消费者模板不同。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "6687145fc262e7245936010e9dd9dbff88cf5b4c18cfe837e6f7346dfd51abe4",
+    "replays": []
+  },
+  {
+    "id": "L027",
+    "rationale": "只出现第一个消费者，候选计划没有完整后缀。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "0f4831cdd3b92622498286fc1654303e0bcb5c6a3741eda7c628576db6b491a7",
+    "replays": []
+  },
+  {
+    "id": "L028",
+    "rationale": "循环消费者之间插入另一工具调用，跨度不连续。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "8bada84b6e2c8a549a3ab9c3fe5c3b01538bb6b440ff6c2cfef01baed435544f",
+    "replays": []
+  },
+  {
+    "id": "L029",
+    "rationale": "生产者观察之后用户改变任务，旧前缀不能跨越新指令。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "c95a4226e575dcf363ecdeffbdd0b74b77d73c305ec733494d5c00beb56d9694",
+    "replays": []
+  },
+  {
+    "id": "L030",
+    "rationale": "两个消费者之间出现用户新指令，不构成一个连续自动执行片段。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "a11f942d2b09b8bb8f82698a9a99d440978f31fcf4284d220b160329e5eaa980",
+    "replays": []
+  },
+  {
+    "id": "L031",
+    "rationale": "首消费者工作目录缺失，不能猜测路径。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "03da9e4c613cf6322c0735f3dd9c4485a9b62f9bcb45aed70fbb2a6467490a83",
+    "replays": []
+  },
+  {
+    "id": "L032",
+    "rationale": "后续消费者切换工作目录，同一文字路径不再是同一资源。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "03da9e4c613cf6322c0735f3dd9c4485a9b62f9bcb45aed70fbb2a6467490a83",
+    "replays": []
+  },
+  {
+    "id": "L033",
+    "rationale": "枚举后 touch 绑定文件，存在写入到绑定读取的 RAW 屏障。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      }
+    },
+    "trajectory_sha256": "7bc5c85522edd74ee73b5aa356885afc213334872918751339289dc5475c2c53",
+    "replays": []
+  },
+  {
+    "id": "L034",
+    "rationale": "枚举后删除枚举根，父子树重叠必须阻止绑定。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      }
+    },
+    "trajectory_sha256": "9e67cde91d96354b9a95b3165bfcf40fbd7ede59ccffcc4140425baf5867cefe",
+    "replays": []
+  },
+  {
+    "id": "L035",
+    "rationale": "枚举根中新建文件改变成员集合，即使不写已有绑定文件也须阻止。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      }
+    },
+    "trajectory_sha256": "35fc9043456fa234fde06b35cfbbf16f10aeb6287e3b8eb184023e935f067556",
+    "replays": []
+  },
+  {
+    "id": "L036",
+    "rationale": "未知程序可能改变枚举与文件，需全局屏障。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      }
+    },
+    "trajectory_sha256": "93cd1fea48a713f06bf93e2e61b291bc201d536168591af0828dd776652c511e",
+    "replays": []
+  },
+  {
+    "id": "L037",
+    "rationale": "复合管道未建模，不能把它当作只读安全调用。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      }
+    },
+    "trajectory_sha256": "0a0b0ca8a8364e9d4712b9c63dfc306d0a0b0b6f3e1d7803ffb4cf063c8512f6",
+    "replays": []
+  },
+  {
+    "id": "L038",
+    "rationale": "移动绑定文件写入源与目标，源路径依赖失效。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      }
+    },
+    "trajectory_sha256": "5f984e5ac7af58f0370e559bb0076ad8e9d3280a3ee10b0443d5bc5e18e6632d",
+    "replays": []
+  },
+  {
+    "id": "L039",
+    "rationale": "删除绑定文件会影响后续读取。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      }
+    },
+    "trajectory_sha256": "e4a61bd1620d333b7d102ca35713d0bdc9332e0db1649ffc319c75dd97a64a97",
+    "replays": []
+  },
+  {
+    "id": "L040",
+    "rationale": "ls 的 NUL 样式输出不构成已支持的 find 来源。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "cc4df137804318b1e122c949f2c611458e19b910765735d35e3480a6f521ea17",
+    "replays": []
+  },
+  {
+    "id": "L041",
+    "rationale": "没有枚举调用；未来 cat 输出恰好含列表也不能倒推来源。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "b73c7fb9289c0861b926e7b586c36d876659df2bb065c21518365b96c8ff8a40",
+    "replays": []
+  },
+  {
+    "id": "L042",
+    "rationale": "枚举使用不同工作目录，消费者同名路径无法绑定。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "99980a31ef0f6d400acd9baa1e60c63d528156ff134089d627c82428e54b5511",
+    "replays": []
+  },
+  {
+    "id": "L043",
+    "rationale": "列表含空路径项，拒绝不完整或畸形来源。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "e9af8fd1b1cf72ad50031420c1221804cde837c9da035496096353f2a3212126",
+    "replays": []
+  },
+  {
+    "id": "L044",
+    "rationale": "shell 展开路径不在词法普通文件模型内。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "017152eaa0839f95c35e9047d685480186ad5aea284e4f39554f1b243795201c",
+    "replays": []
+  },
+  {
+    "id": "L045",
+    "rationale": "head 参数在后续调用改变，不是固定命令模板。",
+    "expected": [],
+    "predictions": {
+      "production": [],
+      "naive": [],
+      "no_dependency_guard": []
+    },
+    "scores": {
+      "production": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "naive": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "no_dependency_guard": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "trajectory_sha256": "36e332748c7e5798c9cc6a2df2b9068820efdfb5314e04b8b0a5ad29a4a7aaa6",
+    "replays": []
+  }
+]

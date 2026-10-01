@@ -1,0 +1,8 @@
+{
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "artifacts": {
+    "traceopt-0.1.0.dev0-py3-none-any.whl": "077d13f512eb75d40c8fd4297b38602c4767df9a46524fe5608df60b3ab5b80e",
+    "traceopt-0.1.0.dev0.tar.gz": "1a620dad16d87e779f46421d3f36f93c4e1c5848db0e9d1a569941aac9f86b3a"
+  }
+}

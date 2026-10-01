@@ -1,0 +1,4 @@
+命令：.venv/Scripts/python.exe -m ruff check src tests
+工作目录：G:/Advance_tool_mining/TraceOpt
+退出码：0
+All checks passed!

@@ -1,0 +1,141 @@
+running egg_info
+writing src\traceopt.egg-info\PKG-INFO
+writing dependency_links to src\traceopt.egg-info\dependency_links.txt
+writing entry points to src\traceopt.egg-info\entry_points.txt
+writing requirements to src\traceopt.egg-info\requires.txt
+writing top-level names to src\traceopt.egg-info\top_level.txt
+reading manifest file 'src\traceopt.egg-info\SOURCES.txt'
+writing manifest file 'src\traceopt.egg-info\SOURCES.txt'
+running sdist
+running egg_info
+writing src\traceopt.egg-info\PKG-INFO
+writing dependency_links to src\traceopt.egg-info\dependency_links.txt
+writing entry points to src\traceopt.egg-info\entry_points.txt
+writing requirements to src\traceopt.egg-info\requires.txt
+writing top-level names to src\traceopt.egg-info\top_level.txt
+reading manifest file 'src\traceopt.egg-info\SOURCES.txt'
+writing manifest file 'src\traceopt.egg-info\SOURCES.txt'
+running check
+creating traceopt-0.1.0.dev0
+creating traceopt-0.1.0.dev0\src\traceopt
+creating traceopt-0.1.0.dev0\src\traceopt.egg-info
+creating traceopt-0.1.0.dev0\tests
+copying files to traceopt-0.1.0.dev0...
+copying README.md -> traceopt-0.1.0.dev0
+copying pyproject.toml -> traceopt-0.1.0.dev0
+copying src\traceopt\__init__.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt\__main__.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt\binding.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt\cli.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt\dependency.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt\evaluation.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt\replay.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt\semantics.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt\trajectory.py -> traceopt-0.1.0.dev0\src\traceopt
+copying src\traceopt.egg-info\PKG-INFO -> traceopt-0.1.0.dev0\src\traceopt.egg-info
+copying src\traceopt.egg-info\SOURCES.txt -> traceopt-0.1.0.dev0\src\traceopt.egg-info
+copying src\traceopt.egg-info\dependency_links.txt -> traceopt-0.1.0.dev0\src\traceopt.egg-info
+copying src\traceopt.egg-info\entry_points.txt -> traceopt-0.1.0.dev0\src\traceopt.egg-info
+copying src\traceopt.egg-info\requires.txt -> traceopt-0.1.0.dev0\src\traceopt.egg-info
+copying src\traceopt.egg-info\top_level.txt -> traceopt-0.1.0.dev0\src\traceopt.egg-info
+copying tests\test_binding.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_binding_integration.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_binding_qa.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_cli.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_cli_qa.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_dependency.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_dependency_challenges.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_dependency_integration.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_dependency_qa.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_evaluation.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_evaluation_qa.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_replay.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_replay_integration.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_replay_qa.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_semantics.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_semantics_qa.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_trajectory.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_trajectory_integration.py -> traceopt-0.1.0.dev0\tests
+copying tests\test_trajectory_qa.py -> traceopt-0.1.0.dev0\tests
+Writing traceopt-0.1.0.dev0\setup.cfg
+Creating tar archive
+removing 'traceopt-0.1.0.dev0' (and everything under it)
+running egg_info
+writing src\traceopt.egg-info\PKG-INFO
+writing dependency_links to src\traceopt.egg-info\dependency_links.txt
+writing entry points to src\traceopt.egg-info\entry_points.txt
+writing requirements to src\traceopt.egg-info\requires.txt
+writing top-level names to src\traceopt.egg-info\top_level.txt
+reading manifest file 'src\traceopt.egg-info\SOURCES.txt'
+writing manifest file 'src\traceopt.egg-info\SOURCES.txt'
+running bdist_wheel
+running build
+running build_py
+creating build\lib\traceopt
+copying src\traceopt\binding.py -> build\lib\traceopt
+copying src\traceopt\cli.py -> build\lib\traceopt
+copying src\traceopt\dependency.py -> build\lib\traceopt
+copying src\traceopt\evaluation.py -> build\lib\traceopt
+copying src\traceopt\replay.py -> build\lib\traceopt
+copying src\traceopt\semantics.py -> build\lib\traceopt
+copying src\traceopt\trajectory.py -> build\lib\traceopt
+copying src\traceopt\__init__.py -> build\lib\traceopt
+copying src\traceopt\__main__.py -> build\lib\traceopt
+running egg_info
+writing src\traceopt.egg-info\PKG-INFO
+writing dependency_links to src\traceopt.egg-info\dependency_links.txt
+writing entry points to src\traceopt.egg-info\entry_points.txt
+writing requirements to src\traceopt.egg-info\requires.txt
+writing top-level names to src\traceopt.egg-info\top_level.txt
+reading manifest file 'src\traceopt.egg-info\SOURCES.txt'
+writing manifest file 'src\traceopt.egg-info\SOURCES.txt'
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\traceopt
+copying build\lib\traceopt\binding.py -> build\bdist.win-amd64\wheel\.\traceopt
+copying build\lib\traceopt\cli.py -> build\bdist.win-amd64\wheel\.\traceopt
+copying build\lib\traceopt\dependency.py -> build\bdist.win-amd64\wheel\.\traceopt
+copying build\lib\traceopt\evaluation.py -> build\bdist.win-amd64\wheel\.\traceopt
+copying build\lib\traceopt\replay.py -> build\bdist.win-amd64\wheel\.\traceopt
+copying build\lib\traceopt\semantics.py -> build\bdist.win-amd64\wheel\.\traceopt
+copying build\lib\traceopt\trajectory.py -> build\bdist.win-amd64\wheel\.\traceopt
+copying build\lib\traceopt\__init__.py -> build\bdist.win-amd64\wheel\.\traceopt
+copying build\lib\traceopt\__main__.py -> build\bdist.win-amd64\wheel\.\traceopt
+running install_egg_info
+Copying src\traceopt.egg-info to build\bdist.win-amd64\wheel\.\traceopt-0.1.0.dev0-py3.13.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\traceopt-0.1.0.dev0.dist-info\WHEEL
+creating 'G:\\Advance_tool_mining\\TraceOpt\\iterations\\iter_011\\evidence\\dist\\.tmp-ev24xxwy\\traceopt-0.1.0.dev0-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'traceopt/__init__.py'
+adding 'traceopt/__main__.py'
+adding 'traceopt/binding.py'
+adding 'traceopt/cli.py'
+adding 'traceopt/dependency.py'
+adding 'traceopt/evaluation.py'
+adding 'traceopt/replay.py'
+adding 'traceopt/semantics.py'
+adding 'traceopt/trajectory.py'
+adding 'traceopt-0.1.0.dev0.dist-info/METADATA'
+adding 'traceopt-0.1.0.dev0.dist-info/WHEEL'
+adding 'traceopt-0.1.0.dev0.dist-info/entry_points.txt'
+adding 'traceopt-0.1.0.dev0.dist-info/top_level.txt'
+adding 'traceopt-0.1.0.dev0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+Successfully built traceopt-0.1.0.dev0.tar.gz and traceopt-0.1.0.dev0-py3-none-any.whl
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=68
+* Getting build dependencies for sdist...
+* Installed build dependency versions:
+  - setuptools==84.0.0
+* Building sdist...
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=68
+* Getting build dependencies for wheel...
+* Installed build dependency versions:
+  - setuptools==84.0.0
+* Building wheel...

@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-09-22T16:16:15.001900+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "checks": [
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "iterations/iter_005/evidence/dev_pytest.log"
+    },
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "iterations/iter_005/evidence/dev_ruff.log"
+    }
+  ],
+  "source_hashes": {
+    "pyproject.toml": "4e88851a076933a23e1dfb5c67df73a516c5a9e007f490d4c1ef6fb3be4d4b15",
+    "src/traceopt/binding.py": "5976f2394e70e47aac9a6642bce98d1699efffbdce13e819a84f8837887dd576",
+    "src/traceopt/cli.py": "0d385c0dd4020e8c2235ef050740485be45b73a6896ebee048b57476e70e2cb6",
+    "src/traceopt/dependency.py": "ac7190e40417ed785f2bb025c3fdcc29a493d81090d90f905e12deab988d86c8",
+    "src/traceopt/semantics.py": "accd4c223967494c38fa41fd2046a0a77c0da6d673e58a4fe3e4ab2aea3e6ff2",
+    "src/traceopt/trajectory.py": "93b097e8de330f1be18a0cc71e88a2abdb783c73c20b1bfe42a8a547de73b607",
+    "src/traceopt/__init__.py": "d6d8844e75572a68b283f879643152f243da985e05c945676d997edeb1d32827",
+    "src/traceopt/__main__.py": "16f9c06bb0393ecac5a070d13c647b67e55b480ba689ba6dcdba7aea891ed4e7",
+    "tests/conftest.py": "22df1f25505beeed061c82d774c99890988c4b7ccf25cdcc09e6122a1ff67d52",
+    "tests/test_binding.py": "b07cab85986b2e636a20c23970e25b086f1e786974b4fa7edb73c7c5942db5d6",
+    "tests/test_binding_integration.py": "bd2833b8426224de335b8285915f584376c21b3b0aa9069611c5413edb6843a8",
+    "tests/test_cli.py": "010fb2ecc08d8d7e5127ee75dc49e9d07eeb43026a14270fc48fdf712498de9d",
+    "tests/test_cli_qa.py": "7ccc6b96edceea05d7054ed6208306948b1f8df4cb3a267e8d2de82c199b0713",
+    "tests/test_dependency.py": "5898c2c6c58e442ba53d3f10c079214fb5cc3a9eec10ea18ab3fcb5a55cdb132",
+    "tests/test_dependency_challenges.py": "6a4842d57670004249ac93747f423be362bc71b578ed7f620a417aa419023073",
+    "tests/test_dependency_integration.py": "3625d28fef0f667520797636878f9f97c9cb763f7aa79ea68086b550ec1335de",
+    "tests/test_dependency_qa.py": "c388f169d853e75103880b2ed6802d9d32f9d8e14201d171de2ff952351addc1",
+    "tests/test_semantics.py": "71c4505bd1d259166f955312296f9508d6d7b17a19f33c634759b2a43e544400",
+    "tests/test_semantics_qa.py": "b7f90b6174596e3ffdd55c14cea4bcd24d9ede5aa6077e541ccc55caaf4fc67d",
+    "tests/test_trajectory.py": "a1ebc18081aa8d4aea53ed7d95b69ee3b83991e053cf417f047164114fa954d2",
+    "tests/test_trajectory_integration.py": "9ed938d6f9e62576060615e8b2afead22a47f04e87f443dd5024a618fd6532fc",
+    "tests/test_trajectory_qa.py": "65d49495e8136af02f93578687c25b6c6dcda7869bbfc8b03d34a064aa469b32",
+    "tests/fixtures/cli_sources.json": "93904721ca373616934792da56fbd23c3acd828055d69268096cd4ab4fd11fcf",
+    "tests/fixtures/provenance.json": "01240d0e2fded6f22ed8e0cae1921bd7efbc68755ed2b4f18e1396d852a2aa79",
+    "tests/fixtures/trajectory.json": "aa06809b714a03061bc975fb0d8f4bd212802cc5bfb14adc210744232d96401e",
+    "data/challenges/dependency_v1.json": "f7560cc72ac6fb98931e3ad11b87b639f35a6cf16e0f4a17daa6473c1ed4bd1a"
+  }
+}

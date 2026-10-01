@@ -1,0 +1,172 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "venv",
+        ".venv-release-final"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_venv.log"
+    },
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-final\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "iterations\\iter_012\\evidence\\dist\\traceopt-0.1.0-py3-none-any.whl[dev]"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_install.log"
+    },
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-final\\Scripts\\python.exe",
+        "-c",
+        "import traceopt; from importlib.metadata import version; assert \"site-packages\" in traceopt.__file__; assert version(\"traceopt\")==\"0.1.0\"; print(traceopt.__file__)"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_identity.log"
+    },
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-final\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_pytest.log"
+    },
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-final\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "examples",
+        "experiments"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_ruff.log"
+    },
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-final\\Scripts\\python.exe",
+        "examples/replay_demo.py",
+        "iterations\\iter_012\\evidence\\demo"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_demo.log"
+    },
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-final\\Scripts\\python.exe",
+        "experiments/evaluate.py",
+        "configs/eval_v1.json",
+        "iterations\\iter_012\\evidence\\evaluation"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_evaluation.log"
+    },
+    {
+      "command": [
+        "G:\\Advance_tool_mining\\TraceOpt\\.venv-release-final\\Scripts\\python.exe",
+        "iterations/iter_007/evidence/verify_metrics.py",
+        "results/exp002",
+        "iterations\\iter_012\\evidence\\evaluation"
+      ],
+      "cwd": "G:\\Advance_tool_mining\\TraceOpt",
+      "exit_code": 0,
+      "log": "qa_metrics.log"
+    }
+  ],
+  "source_hashes": {
+    "traceopt/binding.py": "f1acfd44fb97f5b01017af0eb9224a1e1e11473d5479a0f74c7a71dbc1affb77",
+    "traceopt/cli.py": "0d385c0dd4020e8c2235ef050740485be45b73a6896ebee048b57476e70e2cb6",
+    "traceopt/dependency.py": "ac7190e40417ed785f2bb025c3fdcc29a493d81090d90f905e12deab988d86c8",
+    "traceopt/evaluation.py": "d1ef0fa085246ad988862e348ece679cb59f24ad6df95aefb89d946be86bd700",
+    "traceopt/replay.py": "8a26596b894f93fb29450c752af01fdfa6d93170e52e92c9d6446787432dbf6f",
+    "traceopt/semantics.py": "accd4c223967494c38fa41fd2046a0a77c0da6d673e58a4fe3e4ab2aea3e6ff2",
+    "traceopt/trajectory.py": "93b097e8de330f1be18a0cc71e88a2abdb783c73c20b1bfe42a8a547de73b607",
+    "traceopt/__init__.py": "832218b3e83759ebc6192430f0f0f45b767c712edb65fe1555450dc1bf596f06",
+    "traceopt/__main__.py": "16f9c06bb0393ecac5a070d13c647b67e55b480ba689ba6dcdba7aea891ed4e7"
+  },
+  "wheel_files": [
+    "traceopt/__init__.py",
+    "traceopt/__main__.py",
+    "traceopt/binding.py",
+    "traceopt/cli.py",
+    "traceopt/dependency.py",
+    "traceopt/evaluation.py",
+    "traceopt/replay.py",
+    "traceopt/semantics.py",
+    "traceopt/trajectory.py",
+    "traceopt-0.1.0.dist-info/METADATA",
+    "traceopt-0.1.0.dist-info/WHEEL",
+    "traceopt-0.1.0.dist-info/entry_points.txt",
+    "traceopt-0.1.0.dist-info/top_level.txt",
+    "traceopt-0.1.0.dist-info/RECORD"
+  ],
+  "sdist_files": [
+    "traceopt-0.1.0",
+    "traceopt-0.1.0/PKG-INFO",
+    "traceopt-0.1.0/README.md",
+    "traceopt-0.1.0/pyproject.toml",
+    "traceopt-0.1.0/setup.cfg",
+    "traceopt-0.1.0/src",
+    "traceopt-0.1.0/src/traceopt",
+    "traceopt-0.1.0/src/traceopt/__init__.py",
+    "traceopt-0.1.0/src/traceopt/__main__.py",
+    "traceopt-0.1.0/src/traceopt/binding.py",
+    "traceopt-0.1.0/src/traceopt/cli.py",
+    "traceopt-0.1.0/src/traceopt/dependency.py",
+    "traceopt-0.1.0/src/traceopt/evaluation.py",
+    "traceopt-0.1.0/src/traceopt/replay.py",
+    "traceopt-0.1.0/src/traceopt/semantics.py",
+    "traceopt-0.1.0/src/traceopt/trajectory.py",
+    "traceopt-0.1.0/src/traceopt.egg-info",
+    "traceopt-0.1.0/src/traceopt.egg-info/PKG-INFO",
+    "traceopt-0.1.0/src/traceopt.egg-info/SOURCES.txt",
+    "traceopt-0.1.0/src/traceopt.egg-info/dependency_links.txt",
+    "traceopt-0.1.0/src/traceopt.egg-info/entry_points.txt",
+    "traceopt-0.1.0/src/traceopt.egg-info/requires.txt",
+    "traceopt-0.1.0/src/traceopt.egg-info/top_level.txt",
+    "traceopt-0.1.0/tests",
+    "traceopt-0.1.0/tests/test_binding.py",
+    "traceopt-0.1.0/tests/test_binding_integration.py",
+    "traceopt-0.1.0/tests/test_binding_qa.py",
+    "traceopt-0.1.0/tests/test_cli.py",
+    "traceopt-0.1.0/tests/test_cli_qa.py",
+    "traceopt-0.1.0/tests/test_dependency.py",
+    "traceopt-0.1.0/tests/test_dependency_challenges.py",
+    "traceopt-0.1.0/tests/test_dependency_integration.py",
+    "traceopt-0.1.0/tests/test_dependency_qa.py",
+    "traceopt-0.1.0/tests/test_evaluation.py",
+    "traceopt-0.1.0/tests/test_evaluation_qa.py",
+    "traceopt-0.1.0/tests/test_replay.py",
+    "traceopt-0.1.0/tests/test_replay_integration.py",
+    "traceopt-0.1.0/tests/test_replay_qa.py",
+    "traceopt-0.1.0/tests/test_semantics.py",
+    "traceopt-0.1.0/tests/test_semantics_qa.py",
+    "traceopt-0.1.0/tests/test_trajectory.py",
+    "traceopt-0.1.0/tests/test_trajectory_integration.py",
+    "traceopt-0.1.0/tests/test_trajectory_qa.py"
+  ],
+  "packages": {
+    "traceopt-0.1.0-py3-none-any.whl": "50fab8596d16c4321bc213495aa60a3e39ac45aaab1b61ca8fc6ba157b42fb30",
+    "traceopt-0.1.0.tar.gz": "9cb4b3d83564530d26d8581dadd7011a5ea730ceafaa71a9b70554bc0cb38225"
+  }
+}

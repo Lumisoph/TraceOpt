@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from traceopt import load_trajectory; print(load_trajectory("tests/fixtures/trajectory.json").trajectory_format)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'traceopt'
