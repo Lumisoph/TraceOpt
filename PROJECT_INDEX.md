@@ -1,10 +1,10 @@
-# 项目导航
+﻿# 项目导航
 
 ## 当前入口
 
-- 当前轮次：iter_024；阶段：qa；角色：QA。
+- 当前轮次：iter_025；阶段：planning；角色：Planner。
 - 机器入口：[state.yaml](.traceopt/state.yaml)；流程：[workflow.yaml](.traceopt/workflow.yaml)。
-- [计划](iterations/iter_024/PLAN.md) · [开发报告](iterations/iter_024/DEV_REPORT.md) · [QA 报告](iterations/iter_024/QA_REPORT.md)。
+- [计划](iterations/iter_025/PLAN.md) · [开发报告](iterations/iter_025/DEV_REPORT.md) · [QA 报告](iterations/iter_025/QA_REPORT.md)。
 - 第十二轮已收尾；0.1.0 分发包与包内源码身份验证通过。
 
 ## 核心文档

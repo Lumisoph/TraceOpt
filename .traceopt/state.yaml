@@ -1,17 +1,17 @@
-schema_version: 1
-iteration: 24
-phase: qa
+﻿schema_version: 1
+iteration: 25
+phase: planning
 milestone: M4
 status:
-  plan: completed
-  development: completed
-  qa: in_progress
+  plan: in_progress
+  development: pending
+  qa: pending
   finalization: pending
 artifacts:
-  plan: iterations/iter_024/PLAN.md
-  development: iterations/iter_024/DEV_REPORT.md
-  qa: iterations/iter_024/QA_REPORT.md
-last_finalized_iteration: 23
+  plan: iterations/iter_025/PLAN.md
+  development: iterations/iter_025/DEV_REPORT.md
+  qa: iterations/iter_025/QA_REPORT.md
+last_finalized_iteration: 24
 blockers: []
 capabilities:
   trajectory: VERIFIED_FULL

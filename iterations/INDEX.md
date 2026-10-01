@@ -23,4 +23,4 @@
 | iter_021 | 已收尾，QA passed | v0.1.0 发布审计与外部边界 | [PLAN](iter_021/PLAN.md)、[DEV_REPORT](iter_021/DEV_REPORT.md)、[QA_REPORT](iter_021/QA_REPORT.md) |
 | iter_022 | 已收尾，QA passed | v0.1.0 发布交接清单 | [PLAN](iter_022/PLAN.md)、[DEV_REPORT](iter_022/DEV_REPORT.md)、[QA_REPORT](iter_022/QA_REPORT.md) |
 | iter_023 | 已收尾，QA passed | 最终发布候选回归 | [PLAN](iter_023/PLAN.md)、[DEV_REPORT](iter_023/DEV_REPORT.md)、[QA_REPORT](iter_023/QA_REPORT.md) |
-| iter_024 | planning | 待规划 | [PLAN](iter_024/PLAN.md)、[DEV_REPORT](iter_024/DEV_REPORT.md)、[QA_REPORT](iter_024/QA_REPORT.md) |
+| iter_024 | 已收尾，QA passed | 公开仓库复现与发布事实同步 | [PLAN](iter_024/PLAN.md)?[DEV_REPORT](iter_024/DEV_REPORT.md)?[QA_REPORT](iter_024/QA_REPORT.md) |
