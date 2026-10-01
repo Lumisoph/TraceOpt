@@ -1,11 +1,11 @@
-﻿schema_version: 1
+schema_version: 1
 iteration: 24
-phase: planning
+phase: qa
 milestone: M4
 status:
-  plan: in_progress
-  development: pending
-  qa: pending
+  plan: completed
+  development: completed
+  qa: in_progress
   finalization: pending
 artifacts:
   plan: iterations/iter_024/PLAN.md

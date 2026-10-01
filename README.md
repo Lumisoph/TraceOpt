@@ -16,7 +16,7 @@ python -m venv .venv
 ```
 
 运行时没有第三方依赖；开发依赖是 pytest 和 Ruff。
-完整测试需要 data/README.md 指向的本地真实样本，缺失时会明确失败。
+公开仓库已包含 data/README.md 指向的四个固定真实样本，完整测试无需完整原始数据集。
 只运行独立单元测试可使用 `python -m pytest -q tests/test_trajectory.py`（需使用已安装本包的环境）。
 
 ## Python 接口
@@ -40,9 +40,10 @@ print(trajectory.pending_call_ids)
 角色顺序为 Planner → Developer → QA → Finalizer → 下一轮 Planner。
 Finalizer 是报告驱动的同步阶段，提示词本身不是自动运行的服务。
 
-现有输入保留在 swe-bench-top11，详见 [数据说明](data/README.md)。
+完整原始输入保留在本地 swe-bench-top11；公开样本位于 data/samples/real，详见 [数据说明](data/README.md)。
 实验指标入口为 [结果注册表](results/registry.yaml)，已有 EXP-002 已验证受控检测与重放评估，不代表生产性能或模型成本收益。
-发布范围见 [发布条件](RELEASE_CRITERIA.md)；本地发布交接清单见 [RELEASE_HANDOFF.md](RELEASE_HANDOFF.md)。
+源码已发布到 [GitHub main](https://github.com/Lumisoph/TraceOpt)。发布范围见 [发布条件](RELEASE_CRITERIA.md)；
+发布交接与安装包边界见 [RELEASE_HANDOFF.md](RELEASE_HANDOFF.md)。
 
 ## 命令行
 

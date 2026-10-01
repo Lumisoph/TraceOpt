@@ -1,6 +1,6 @@
 ﻿# TraceOpt v0.1.0 发布审计
 
-状态：本地发布候选已完成审计；未上传 GitHub 或其他远程仓库。
+状态：本地发布候选已完成审计；源码已发布到 GitHub main。
 
 本文件只报告当前工作区可复现的证据。`VERIFIED_FULL`、`VERIFIED_LOCAL` 和 `verified` 的含义沿用 [AGENTS.md](../AGENTS.md)；受限能力不得扩大解释。
 
@@ -26,9 +26,13 @@
 - 最新工作区回归：iter_020 QA 记录 334 passed、Ruff、CLI 和状态快照对抗检查通过。
 - 结果：EXP-002 已在注册表中标记 `verified`；不代表生产分布、模型成本或端到端收益。
 
-## 明确未完成的外部动作
+## 远程发布事实与边界
 
-当前目录不是 Git 工作树，没有 Git commit，也没有 GitHub 远程发布。上述本地证据不能写成“已发布到 GitHub”或“已完成公开分发”。创建仓库、提交和上传属于外部发布动作，必须在用户明确提供目标仓库和授权后单独执行。
+源码仓库：[Lumisoph/TraceOpt](https://github.com/Lumisoph/TraceOpt)，首次发布提交
+`881c38a688da9245637b381c67e0949c98d9bf87` 已通过远程 main 哈希核对。
+原始工作区不是 Git 工作树，发布使用独立克隆。
+新克隆独立环境复现证据见 [iter_024 QA](../iterations/iter_024/QA_REPORT.md)。
+未创建 GitHub Release、未上传安装包或发布 PyPI；不能用源码发布声称这些动作已完成。
 
 ## 不能由本审计推出的结论
 

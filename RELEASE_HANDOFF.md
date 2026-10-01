@@ -1,14 +1,16 @@
 ﻿# TraceOpt v0.1.0 发布交接清单
 
-状态：**本地发布候选已验证，尚未发布到 GitHub。**
+状态：**源码已发布到 GitHub main；安装包仍仅在本地验证。**
 
-这份清单供获得仓库权限的发布者使用。它不授予外部上传权限，也不把本地验证写成远程发布事实。
+仓库：[Lumisoph/TraceOpt](https://github.com/Lumisoph/TraceOpt)。
+首次源码发布提交：`881c38a688da9245637b381c67e0949c98d9bf87`。
+发布后复现与文档同步证据见 [iter_024 QA](iterations/iter_024/QA_REPORT.md)。
 
 ## 版本身份
 
 - 项目：`traceopt`
 - 版本：`0.1.0`（见 [pyproject.toml](pyproject.toml)）
-- 当前工作区没有 Git commit；文件身份使用 SHA-256。
+- 原始开发工作区仍不含 .git；发布克隆保留 Git commit，历史包证据使用 SHA-256。
 - 构建清单：[iter_019 dist_manifest.json](iterations/iter_019/evidence/dist_manifest.json)
 - wheel 源码逐文件身份：[package_identity.json](iterations/iter_019/evidence/package_identity.json)
 
@@ -38,11 +40,12 @@ python -m traceopt --help
 
 可以说：TraceOpt 在明确的词法路径模型和受限 cat 模板上实现了轨迹解析、依赖分析、前缀绑定、可执行改写与状态重放，并有对应 QA/实验证据。
 
-不能说：已发布到 GitHub、支持任意 Bash、复现 LLM conversation、证明模型成本下降、覆盖全数据集或证明生产泛化。
+不能说：已上传 GitHub Release 或 PyPI 安装包、支持任意 Bash、复现 LLM conversation、证明模型成本下降、覆盖全数据集或证明生产泛化。
 
 ## 外部动作
 
-当前没有 Git 仓库、commit 或远程地址。创建/关联 GitHub 仓库、提交文件、创建 release 和上传 wheel/sdist 都是尚未执行的外部动作，需要发布者提供目标仓库并明确授权。
+源码已推送到上述仓库的 main。未创建 GitHub Release，未上传 wheel/sdist 或发布 PyPI；
+这些安装包发布动作不属于本轮源码公开任务，不以源码推送代替包发布证据。
 
 ## 证据入口
 

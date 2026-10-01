@@ -13,6 +13,7 @@ AUTHORITATIVE = (
     ROOT / "docs/architecture/INDEX.md",
     ROOT / "docs/release_audit.md",
     ROOT / "RELEASE_HANDOFF.md",
+    ROOT / "data/README.md",
 )
 
 
@@ -29,14 +30,14 @@ def test_current_iteration_and_capabilities_are_consistent() -> None:
     index = (ROOT / "PROJECT_INDEX.md").read_text(encoding="utf-8")
     project_state = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
     match = re.search(r"^iteration:\s*(\d+)$", state, re.MULTILINE)
-    assert match, "state.yaml \u7f3a\u5c11\u5f53\u524d iteration"
+    assert match, "state.yaml 缺少当前 iteration"
     iteration = int(match.group(1))
     iter_tag = f"iter_{iteration:03d}"
     assert re.search(r"phase: (planning|development|qa|finalizing)\n", state)
     assert f"iterations/{iter_tag}/PLAN.md" in state
-    assert f"\u5f53\u524d\u8f6e\u6b21\uff1a{iter_tag}" in index
+    assert f"当前轮次：{iter_tag}" in index
     assert re.search(
-        rf"\u5f53\u524d {iter_tag} / (planning|development|qa|finalizing)",
+        rf"当前 {iter_tag} / (planning|development|qa|finalizing)",
         project_state,
     )
     assert "BUG-002 OPEN" not in project_state
@@ -58,17 +59,21 @@ def test_release_snapshot_points_to_verified_evidence() -> None:
     assert "pyproject.toml` 中为 `0.1.0`" in audit
     assert "尚不能分发" not in audit
     assert "下一轮需明确发布版本" not in audit
-    assert "没有 GitHub 远程发布" in audit
+    assert "源码已发布到 GitHub main" in audit
     handoff = (ROOT / "RELEASE_HANDOFF.md").read_text(encoding="utf-8")
     assert "0.1.0" in handoff
     assert "881efd39dfa3be0389a9e95fdf1405f7b2ef2afc980d95070f11a114d63f2c96" in handoff
-    assert "尚未发布到 GitHub" in handoff
+    assert "源码已发布到 GitHub main" in handoff
+    assert "未创建 GitHub Release" in handoff
 
 
 def test_replay_boundary_is_explicit() -> None:
     for path in AUTHORITATIVE:
         text = path.read_text(encoding="utf-8")
-        if path.name in {"README.md", "CLAIMS.md", "PROJECT_STATE.md", "canonical_ir.md"}:
+        if (
+            path.name in {"README.md", "CLAIMS.md", "PROJECT_STATE.md", "canonical_ir.md"}
+            and path.parent != ROOT / "data"
+        ):
             assert "LLM conversation replay" in text
     canonical = (ROOT / "docs/architecture/canonical_ir.md").read_text(encoding="utf-8")
     assert "未知 output 类型" in canonical
